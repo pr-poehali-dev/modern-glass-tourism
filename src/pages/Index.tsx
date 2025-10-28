@@ -24,13 +24,13 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-warm-gray/5 via-light-gray to-burnt-orange/5">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0e1a] via-[#0d1220] to-[#121826]">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Waves" size={32} className="text-burnt-orange" />
-            <span className="text-2xl font-light tracking-wide bg-gradient-to-r from-burnt-orange to-deep-gray bg-clip-text text-transparent">
+            <span className="text-2xl font-light tracking-wide text-deep-gray">
               Azure Bay
             </span>
           </div>
@@ -40,7 +40,7 @@ export default function Index() {
               <button
                 key={item}
                 onClick={() => scrollToSection(['home', 'rooms', 'booking', 'gallery', 'reviews', 'contacts'][idx])}
-                className="text-deep-gray hover:text-burnt-orange transition-colors font-light"
+                className="text-deep-gray/90 hover:text-burnt-orange transition-colors font-light"
               >
                 {item}
               </button>
@@ -67,7 +67,7 @@ export default function Index() {
                 <span className="text-deep-gray">уголок у моря</span>
               </h1>
               
-              <p className="text-xl text-warm-gray/80 leading-relaxed font-light">
+              <p className="text-xl text-warm-gray leading-relaxed font-light">
                 Первая линия моря, подогреваемый бассейн и комфортабельные номера 
                 для незабываемого отдыха
               </p>
@@ -84,7 +84,7 @@ export default function Index() {
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-burnt-orange/30 text-deep-gray hover:bg-burnt-orange/10 font-light backdrop-blur-xl"
+                  className="border-2 border-burnt-orange/50 text-deep-gray hover:bg-burnt-orange/20 font-light backdrop-blur-xl"
                   onClick={() => scrollToSection('rooms')}
                 >
                   Посмотреть номера
@@ -100,7 +100,7 @@ export default function Index() {
                 ].map((feature) => (
                   <div key={feature.text} className="glass-card p-4 text-center hover-scale">
                     <Icon name={feature.icon} size={32} className="mx-auto mb-2 text-burnt-orange" />
-                    <p className="text-sm font-light text-deep-gray">{feature.text}</p>
+                    <p className="text-sm font-light text-deep-gray/90">{feature.text}</p>
                   </div>
                 ))}
               </div>
@@ -206,7 +206,7 @@ export default function Index() {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/5 to-light-gray">
+      <section id="booking" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/10 to-transparent">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
@@ -350,7 +350,7 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-light-gray to-burnt-orange/5">
+      <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-transparent to-burnt-orange/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
