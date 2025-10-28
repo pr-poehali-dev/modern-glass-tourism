@@ -24,13 +24,13 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-ocean-blue/5 via-white to-sand/20">
+    <div className="min-h-screen bg-gradient-to-br from-warm-gray/5 via-light-gray to-burnt-orange/5">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Waves" size={32} className="text-ocean-blue" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-ocean-blue to-deep-navy bg-clip-text text-transparent">
+            <Icon name="Waves" size={32} className="text-burnt-orange" />
+            <span className="text-2xl font-light tracking-wide bg-gradient-to-r from-burnt-orange to-deep-gray bg-clip-text text-transparent">
               Azure Bay
             </span>
           </div>
@@ -40,14 +40,14 @@ export default function Index() {
               <button
                 key={item}
                 onClick={() => scrollToSection(['home', 'rooms', 'booking', 'gallery', 'reviews', 'contacts'][idx])}
-                className="text-deep-navy hover:text-ocean-blue transition-colors font-medium"
+                className="text-deep-gray hover:text-burnt-orange transition-colors font-light"
               >
                 {item}
               </button>
             ))}
           </div>
 
-          <Button className="bg-ocean-blue hover:bg-ocean-blue/90">
+          <Button className="glass-button font-light">
             <Icon name="Phone" size={18} className="mr-2" />
             Позвонить
           </Button>
@@ -59,15 +59,15 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-ocean-blue via-ocean-blue/80 to-deep-navy bg-clip-text text-transparent">
+              <h1 className="text-5xl lg:text-7xl font-extralight leading-tight tracking-tight">
+                <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent">
                   Ваш райский
                 </span>
                 <br />
-                <span className="text-deep-navy">уголок у моря</span>
+                <span className="text-deep-gray">уголок у моря</span>
               </h1>
               
-              <p className="text-xl text-deep-navy/70 leading-relaxed">
+              <p className="text-xl text-warm-gray/80 leading-relaxed font-light">
                 Первая линия моря, подогреваемый бассейн и комфортабельные номера 
                 для незабываемого отдыха
               </p>
@@ -75,7 +75,7 @@ export default function Index() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
                   size="lg" 
-                  className="bg-ocean-blue hover:bg-ocean-blue/90 hover-scale"
+                  className="glass-button hover-scale font-light"
                   onClick={() => scrollToSection('booking')}
                 >
                   Забронировать
@@ -84,6 +84,7 @@ export default function Index() {
                 <Button 
                   size="lg" 
                   variant="outline"
+                  className="border-2 border-burnt-orange/30 text-deep-gray hover:bg-burnt-orange/10 font-light backdrop-blur-xl"
                   onClick={() => scrollToSection('rooms')}
                 >
                   Посмотреть номера
@@ -98,8 +99,8 @@ export default function Index() {
                   { icon: 'Home', text: 'Комфорт' }
                 ].map((feature) => (
                   <div key={feature.text} className="glass-card p-4 text-center hover-scale">
-                    <Icon name={feature.icon} size={32} className="mx-auto mb-2 text-ocean-blue" />
-                    <p className="text-sm font-medium text-deep-navy">{feature.text}</p>
+                    <Icon name={feature.icon} size={32} className="mx-auto mb-2 text-burnt-orange" />
+                    <p className="text-sm font-light text-deep-gray">{feature.text}</p>
                   </div>
                 ))}
               </div>
@@ -115,10 +116,10 @@ export default function Index() {
               </div>
               <div className="absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">
                 <div className="flex items-center gap-3 mb-2">
-                  <Icon name="Star" size={24} className="text-yellow-500 fill-yellow-500" />
-                  <span className="text-3xl font-bold text-deep-navy">4.9</span>
+                  <Icon name="Star" size={24} className="text-accent-orange fill-accent-orange" />
+                  <span className="text-3xl font-light text-deep-gray">4.9</span>
                 </div>
-                <p className="text-sm text-deep-navy/70">Средняя оценка гостей</p>
+                <p className="text-sm text-warm-gray font-light">Средняя оценка гостей</p>
               </div>
             </div>
           </div>
@@ -129,10 +130,10 @@ export default function Index() {
       <section id="rooms" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-deep-navy mb-4">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
               Наши номера
             </h2>
-            <p className="text-xl text-deep-navy/70">
+            <p className="text-xl text-warm-gray font-light">
               Выберите идеальный вариант для вашего отдыха
             </p>
           </div>
@@ -161,36 +162,36 @@ export default function Index() {
             ].map((room) => (
               <Card 
                 key={room.title} 
-                className={`glass-card p-6 hover-scale ${room.featured ? 'ring-2 ring-ocean-blue' : ''}`}
+                className={`glass-card p-6 hover-scale ${room.featured ? 'ring-2 ring-burnt-orange/50' : ''}`}
               >
                 {room.featured && (
-                  <div className="bg-gradient-to-r from-ocean-blue to-ocean-blue/80 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4">
+                  <div className="bg-gradient-to-r from-burnt-orange to-accent-orange text-white text-xs font-light px-3 py-1 rounded-full inline-block mb-4 tracking-wider">
                     ПОПУЛЯРНЫЙ
                   </div>
                 )}
                 
-                <Icon name={room.icon} size={40} className="text-ocean-blue mb-4" />
+                <Icon name={room.icon} size={40} className="text-burnt-orange mb-4" />
                 
-                <h3 className="text-2xl font-bold text-deep-navy mb-2">
+                <h3 className="text-2xl font-light text-deep-gray mb-2 tracking-wide">
                   {room.title}
                 </h3>
                 
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-ocean-blue">{room.price}</span>
-                  <span className="text-deep-navy/70"> ₽/ночь</span>
+                  <span className="text-4xl font-extralight text-burnt-orange">{room.price}</span>
+                  <span className="text-warm-gray font-light"> ₽/ночь</span>
                 </div>
 
                 <ul className="space-y-3 mb-6">
                   {room.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-deep-navy/80">
-                      <Icon name="Check" size={18} className="text-ocean-blue" />
+                    <li key={feature} className="flex items-center gap-2 text-warm-gray font-light">
+                      <Icon name="Check" size={18} className="text-burnt-orange" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Button 
-                  className="w-full bg-ocean-blue hover:bg-ocean-blue/90"
+                  className="w-full glass-button font-light"
                   onClick={() => {
                     setBookingData({ ...bookingData, roomType: room.title });
                     scrollToSection('booking');
@@ -205,13 +206,13 @@ export default function Index() {
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-20 px-4 bg-gradient-to-br from-ocean-blue/10 to-sand/30">
+      <section id="booking" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/5 to-light-gray">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-deep-navy mb-4">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
               Забронировать номер
             </h2>
-            <p className="text-xl text-deep-navy/70">
+            <p className="text-xl text-warm-gray font-light">
               Заполните форму и мы свяжемся с вами
             </p>
           </div>
@@ -301,7 +302,7 @@ export default function Index() {
               />
             </div>
 
-            <Button className="w-full mt-8 bg-ocean-blue hover:bg-ocean-blue/90 text-lg py-6">
+            <Button className="w-full mt-8 glass-button text-lg py-6 font-light">
               Отправить заявку
               <Icon name="Send" size={20} className="ml-2" />
             </Button>
@@ -313,10 +314,10 @@ export default function Index() {
       <section id="gallery" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-deep-navy mb-4">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
               Галерея
             </h2>
-            <p className="text-xl text-deep-navy/70">
+            <p className="text-xl text-warm-gray font-light">
               Наша территория и номера
             </p>
           </div>
@@ -349,13 +350,13 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-sand/30 to-ocean-blue/10">
+      <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-light-gray to-burnt-orange/5">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-deep-navy mb-4">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
               Отзывы гостей
             </h2>
-            <p className="text-xl text-deep-navy/70">
+            <p className="text-xl text-warm-gray font-light">
               Что говорят наши гости
             </p>
           </div>
@@ -385,15 +386,15 @@ export default function Index() {
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                    <Icon key={i} name="Star" size={20} className="text-accent-orange fill-accent-orange" />
                   ))}
                 </div>
                 
-                <p className="text-deep-navy/80 mb-4 italic">
+                <p className="text-warm-gray mb-4 italic font-light">
                   "{review.text}"
                 </p>
                 
-                <p className="font-bold text-deep-navy">
+                <p className="font-normal text-deep-gray">
                   {review.name}
                 </p>
               </Card>
@@ -406,10 +407,10 @@ export default function Index() {
       <section id="contacts" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-deep-navy mb-4">
+            <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
               Контакты
             </h2>
-            <p className="text-xl text-deep-navy/70">
+            <p className="text-xl text-warm-gray font-light">
               Свяжитесь с нами любым удобным способом
             </p>
           </div>
@@ -424,18 +425,18 @@ export default function Index() {
               ].map((contact) => (
                 <Card key={contact.title} className="glass-card p-6 flex items-center gap-4 hover-scale">
                   <div className="glass-elevated p-3 rounded-xl">
-                    <Icon name={contact.icon} size={28} className="text-ocean-blue" />
+                    <Icon name={contact.icon} size={28} className="text-burnt-orange" />
                   </div>
                   <div>
-                    <p className="font-bold text-deep-navy mb-1">{contact.title}</p>
-                    <p className="text-deep-navy/70">{contact.text}</p>
+                    <p className="font-normal text-deep-gray mb-1">{contact.title}</p>
+                    <p className="text-warm-gray font-light">{contact.text}</p>
                   </div>
                 </Card>
               ))}
             </div>
 
             <Card className="glass-elevated p-8 h-fit">
-              <h3 className="text-2xl font-bold text-deep-navy mb-6">Быстрая связь</h3>
+              <h3 className="text-2xl font-light text-deep-gray mb-6 tracking-wide">Быстрая связь</h3>
               
               <div className="space-y-4">
                 <div>
@@ -453,7 +454,7 @@ export default function Index() {
                   <Textarea id="contact-message" placeholder="Ваш вопрос..." rows={4} className="glass-input" />
                 </div>
 
-                <Button className="w-full bg-ocean-blue hover:bg-ocean-blue/90">
+                <Button className="w-full glass-button font-light">
                   Отправить
                   <Icon name="Send" size={18} className="ml-2" />
                 </Button>
@@ -464,13 +465,13 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-deep-navy text-white py-12 px-4">
+      <footer className="bg-deep-gray text-white py-12 px-4">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Icon name="Waves" size={32} />
-            <span className="text-2xl font-bold">Azure Bay</span>
+            <Icon name="Waves" size={32} className="text-burnt-orange" />
+            <span className="text-2xl font-light tracking-wide">Azure Bay</span>
           </div>
-          <p className="text-white/70 mb-6">
+          <p className="text-white/70 mb-6 font-light">
             Туристическая база на первой линии моря
           </p>
           <div className="flex justify-center gap-6 mb-6">
@@ -480,7 +481,7 @@ export default function Index() {
               </button>
             ))}
           </div>
-          <p className="text-white/50 text-sm">
+          <p className="text-white/50 text-sm font-light">
             © 2025 Azure Bay. Все права защищены.
           </p>
         </div>
