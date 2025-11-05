@@ -1,0 +1,68 @@
+import { Card } from '@/components/ui/card';
+import Icon from '@/components/ui/icon';
+
+export default function ReviewsSection() {
+  const reviews = [
+    {
+      name: 'Анна Петрова',
+      rating: 5,
+      text: 'Невероятное место! Первая линия моря, чистый пляж, отличный сервис. Обязательно вернемся.',
+      date: '15 августа 2024'
+    },
+    {
+      name: 'Дмитрий Иванов',
+      rating: 5,
+      text: 'Отдыхали семьей. Номера просторные, территория ухоженная. Бассейн с подогревом - огромный плюс!',
+      date: '10 августа 2024'
+    },
+    {
+      name: 'Елена Смирнова',
+      rating: 5,
+      text: 'Прекрасный вид из номера, внимательный персонал. Идеальное место для романтического отдыха.',
+      date: '5 августа 2024'
+    }
+  ];
+
+  return (
+    <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/5 to-transparent">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
+            Отзывы гостей
+          </h2>
+          <p className="text-xl text-warm-gray font-light">
+            Что говорят о нас наши гости
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {reviews.map((review, idx) => (
+            <Card key={idx} className="glass-card p-6 hover-scale">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(review.rating)].map((_, i) => (
+                  <Icon key={i} name="Star" size={20} className="text-accent-orange fill-accent-orange" />
+                ))}
+              </div>
+              
+              <p className="text-warm-gray font-light mb-4 leading-relaxed">
+                "{review.text}"
+              </p>
+              
+              <div className="flex items-center gap-3 mt-6">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center">
+                  <span className="text-white font-light text-lg">
+                    {review.name.charAt(0)}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-deep-gray font-light">{review.name}</p>
+                  <p className="text-warm-gray/70 text-sm font-light">{review.date}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
