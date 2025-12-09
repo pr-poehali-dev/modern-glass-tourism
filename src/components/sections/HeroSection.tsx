@@ -7,11 +7,11 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
-    <section id="home" className="pt-32 pb-20 px-4">
+    <section id="home" className="pt-24 md:pt-32 pb-12 md:pb-20 px-4">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-5xl lg:text-7xl font-extralight leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight">
               <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent">
                 Ваш райский
               </span>
@@ -19,7 +19,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               <span className="text-deep-gray">уголок у моря</span>
             </h1>
             
-            <p className="text-xl text-warm-gray leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-xl text-warm-gray leading-relaxed font-light">
               Первая линия моря, подогреваемый бассейн и комфортабельные номера 
               для незабываемого отдыха
             </p>
@@ -43,15 +43,15 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 pt-8">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-8">
               {[
                 { icon: 'Waves', text: 'Первая линия' },
                 { icon: 'Droplets', text: 'Бассейн' },
                 { icon: 'Home', text: 'Комфорт' }
               ].map((feature) => (
-                <div key={feature.text} className="glass-card p-4 text-center hover-scale">
-                  <Icon name={feature.icon} size={32} className="mx-auto mb-2 text-burnt-orange" />
-                  <p className="text-sm font-light text-deep-gray/90">{feature.text}</p>
+                <div key={feature.text} className="glass-card p-2 sm:p-4 text-center hover-scale">
+                  <Icon name={feature.icon} size={24} className="sm:w-8 sm:h-8 mx-auto mb-1 sm:mb-2 text-burnt-orange" />
+                  <p className="text-xs sm:text-sm font-light text-deep-gray/90">{feature.text}</p>
                 </div>
               ))}
             </div>
@@ -65,7 +65,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">
+            <div className="hidden md:block absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">
               <div className="flex items-center gap-3 mb-2">
                 <Icon name="Star" size={24} className="text-accent-orange fill-accent-orange" />
                 <span className="text-3xl font-light text-deep-gray">5.0</span>

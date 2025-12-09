@@ -20,19 +20,19 @@ interface BookingSectionProps {
 
 export default function BookingSection({ bookingData, onBookingChange }: BookingSectionProps) {
   return (
-    <section id="booking" className="py-20 px-4">
+    <section id="booking" className="py-12 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
             Забронировать номер
           </h2>
-          <p className="text-xl text-warm-gray font-light">
+          <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
             Заполните форму и мы свяжемся с вами
           </p>
         </div>
 
-        <Card className="glass-elevated p-8">
-          <div className="grid md:grid-cols-2 gap-6">
+        <Card className="glass-elevated p-4 sm:p-6 md:p-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             <div>
               <Label htmlFor="name">Имя</Label>
               <Input 
@@ -105,7 +105,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
             </div>
           </div>
 
-          <Button className="w-full mt-6 glass-button font-light">
+          <Button className="w-full mt-6 glass-button font-light text-base py-6">
             Отправить заявку
             <Icon name="Send" size={18} className="ml-2" />
           </Button>

@@ -24,27 +24,27 @@ export default function ReviewsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-20 px-4">
+    <section id="reviews" className="py-12 md:py-20 px-4">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
             Отзывы гостей
           </h2>
-          <p className="text-xl text-warm-gray font-light">
+          <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
             Что говорят о нас наши гости
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {reviews.map((review, idx) => (
-            <Card key={idx} className="glass-card p-6 hover-scale">
+            <Card key={idx} className="glass-card p-4 sm:p-6 hover-scale">
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
                   <Icon key={i} name="Star" size={20} className="text-accent-orange fill-accent-orange" />
                 ))}
               </div>
               
-              <p className="text-warm-gray font-light mb-4 leading-relaxed">
+              <p className="text-sm sm:text-base text-warm-gray font-light mb-4 leading-relaxed">
                 "{review.text}"
               </p>
               
