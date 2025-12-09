@@ -13,7 +13,6 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     { name: 'Главная', id: 'home' },
     { name: 'Номера', id: 'rooms' },
     { name: 'Бронирование', id: 'booking' },
-    { name: 'Галерея', id: 'gallery' },
     { name: 'Отзывы', id: 'reviews' },
     { name: 'Контакты', id: 'contacts' }
   ];

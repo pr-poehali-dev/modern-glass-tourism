@@ -3,7 +3,6 @@ import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import RoomsSection from '@/components/sections/RoomsSection';
 import BookingSection from '@/components/sections/BookingSection';
-import GallerySection from '@/components/sections/GallerySection';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import ContactsSection from '@/components/sections/ContactsSection';
 import Footer from '@/components/sections/Footer';
@@ -40,7 +39,6 @@ export default function Index() {
       <HeroSection onNavigate={scrollToSection} />
       <RoomsSection onBookRoom={handleBookRoom} />
       <BookingSection bookingData={bookingData} onBookingChange={handleBookingChange} />
-      <GallerySection />
       <ReviewsSection />
       <ContactsSection />
       <Footer />
