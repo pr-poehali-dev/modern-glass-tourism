@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -7,11 +8,14 @@ interface RoomsSectionProps {
 }
 
 export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
+  const [expandedRoom, setExpandedRoom] = useState<string | null>(null);
+
   const rooms = [
     {
       title: 'Комфорт',
       price: '6 000',
-      icon: 'Home',
+      image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80',
+      shortDescription: 'Номер для двоих с кухонной зоной и верандой',
       description: 'Номер для двоих (третье спальное место предоставляется по запросу). Светлый и уютный. В нем расположена двухспальная кровать, кухонная зона, шкаф для хранения вещей, обеденный столик, ванная комната с душем.',
       features: [
         'Бесплатный Wi-Fi',
@@ -25,7 +29,8 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
     {
       title: 'Премиум',
       price: '10 000',
-      icon: 'Crown',
+      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
+      shortDescription: 'Двухкомнатный коттедж с панорамным видом на море',
       description: 'Двухкомнатный коттедж для четырех человек. Индивидуальный выход к бассейну, первая линия с панорамным окном, открывающим бесподобный вид на море. Спальня с двухместной кроватью, большим шифоньером для хранения вещей. Просторный зал с раскладывающимся диваном, комодом и столиком.',
       features: [
         'Собственный выход к бассейну',
@@ -35,10 +40,13 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
         'Сплит-система',
         'Полностью оборудованная кухня',
         'Телевизор со спутниковыми каналами'
-      ],
-      featured: true
+      ]
     }
   ];
+
+  const toggleExpanded = (title: string) => {
+    setExpandedRoom(expandedRoom === title ? null : title);
+  };
 
   return (
     <section id="rooms" className="py-20 px-4">
@@ -56,44 +64,64 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
           {rooms.map((room) => (
             <Card 
               key={room.title} 
-              className={`glass-card p-6 hover-scale ${room.featured ? 'ring-2 ring-burnt-orange/50' : ''}`}
+              className="glass-card overflow-hidden hover-scale"
             >
-              {room.featured && (
-                <div className="bg-gradient-to-r from-burnt-orange to-accent-orange text-white text-xs font-light px-3 py-1 rounded-full inline-block mb-4 tracking-wider">
-                  ПОПУЛЯРНЫЙ
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={room.image} 
+                  alt={room.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 right-4 bg-burnt-orange/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg">
+                  <span className="text-2xl font-extralight">{room.price}</span>
+                  <span className="text-sm font-light"> ₽/сутки</span>
                 </div>
-              )}
-              
-              <Icon name={room.icon} size={40} className="text-burnt-orange mb-4" />
-              
-              <h3 className="text-2xl font-light text-deep-gray mb-2 tracking-wide">
-                {room.title}
-              </h3>
-              
-              <div className="mb-4">
-                <span className="text-4xl font-extralight text-burnt-orange">{room.price}</span>
-                <span className="text-warm-gray font-light"> ₽/сутки</span>
               </div>
 
-              <p className="text-warm-gray/80 font-light text-sm mb-6 leading-relaxed">
-                {room.description}
-              </p>
+              <div className="p-6">
+                <h3 className="text-2xl font-light text-deep-gray mb-2 tracking-wide">
+                  {room.title}
+                </h3>
+                
+                <p className="text-warm-gray/80 font-light text-sm mb-4 leading-relaxed">
+                  {room.shortDescription}
+                </p>
 
-              <ul className="space-y-2 mb-6">
-                {room.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-warm-gray font-light text-sm">
-                    <Icon name="Check" size={16} className="text-burnt-orange mt-0.5 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                {expandedRoom === room.title && (
+                  <div className="mb-4 space-y-4">
+                    <p className="text-warm-gray/80 font-light text-sm leading-relaxed">
+                      {room.description}
+                    </p>
 
-              <Button 
-                className="w-full glass-button font-light"
-                onClick={() => onBookRoom(room.title)}
-              >
-                Забронировать
-              </Button>
+                    <ul className="space-y-2">
+                      {room.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-warm-gray font-light text-sm">
+                          <Icon name="Check" size={16} className="text-burnt-orange mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="flex gap-3">
+                  <Button 
+                    variant="outline"
+                    className="flex-1 glass-card border-burnt-orange/20 hover:bg-burnt-orange/5 font-light"
+                    onClick={() => toggleExpanded(room.title)}
+                  >
+                    {expandedRoom === room.title ? 'Скрыть' : 'Подробнее'}
+                    <Icon name={expandedRoom === room.title ? "ChevronUp" : "ChevronDown"} size={16} className="ml-2" />
+                  </Button>
+                  
+                  <Button 
+                    className="flex-1 glass-button font-light"
+                    onClick={() => onBookRoom(room.title)}
+                  >
+                    Забронировать
+                  </Button>
+                </div>
+              </div>
             </Card>
           ))}
         </div>
