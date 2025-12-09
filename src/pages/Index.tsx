@@ -34,8 +34,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0e1a] via-[#0d1220] to-[#121826] relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+    <div className="min-h-screen bg-[#0a0e1a] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.1] pointer-events-none">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <pattern id="wave-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
             <path d="M 0 100 Q 25 80, 50 100 T 100 100 T 150 100 T 200 100" stroke="#d4670e" strokeWidth="2" fill="none" opacity="0.3"/>

@@ -24,7 +24,7 @@ export default function ReviewsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/5 to-transparent">
+    <section id="reviews" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
