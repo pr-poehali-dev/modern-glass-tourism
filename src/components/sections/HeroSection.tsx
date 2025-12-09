@@ -68,7 +68,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             <div className="absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">
               <div className="flex items-center gap-3 mb-2">
                 <Icon name="Star" size={24} className="text-accent-orange fill-accent-orange" />
-                <span className="text-3xl font-light text-deep-gray">4.9</span>
+                <span className="text-3xl font-light text-deep-gray">5.0</span>
               </div>
               <p className="text-sm text-warm-gray font-light">Средняя оценка гостей</p>
             </div>
