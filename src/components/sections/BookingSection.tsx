@@ -20,7 +20,7 @@ interface BookingSectionProps {
 
 export default function BookingSection({ bookingData, onBookingChange }: BookingSectionProps) {
   return (
-    <section id="booking" className="py-20 px-4 bg-gradient-to-br from-burnt-orange/10 to-transparent">
+    <section id="booking" className="py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
