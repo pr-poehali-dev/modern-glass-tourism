@@ -14,7 +14,7 @@ export default function ContactsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 md:mb-12">
           <Card className="glass-card p-4 sm:p-6 hover-scale">
             <div className="flex flex-col items-center text-center gap-4">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
@@ -52,6 +52,22 @@ export default function ContactsSection() {
               </div>
             </Card>
           </a>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <Card className="glass-card p-2 sm:p-4 overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=37.956467%2C45.359772&z=15&l=map&pt=37.956467,45.359772,pm2rdm"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                className="rounded-lg"
+                title="Карта расположения Горизонт"
+              />
+            </div>
+          </Card>
         </div>
       </div>
     </section>
