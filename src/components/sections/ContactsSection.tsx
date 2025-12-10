@@ -10,53 +10,38 @@ export default function ContactsSection() {
             Контакты
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
-            Свяжитесь с нами любым удобным способом
+            Забронируйте уже сейчас
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4 sm:gap-6">
-            <Card className="glass-card p-4 sm:p-6 hover-scale">
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
-                  <Icon name="MapPin" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
-                </div>
-                <div>
-                  <p className="text-warm-gray/70 text-sm font-light mb-1">Адрес</p>
-                  <p className="text-deep-gray font-light text-base sm:text-lg break-words">
-                    Территория Урочище Кучугуры, 24/27, хутор Верхний, Черноерковское сельское поселение, Славянский район, Краснодарский край
-                  </p>
-                </div>
-              </div>
-            </Card>
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto items-start">
+          <div className="glass-card p-6 sm:p-8 md:p-10 space-y-6">
+            <div className="space-y-4">
+              <p className="text-warm-gray/70 text-sm sm:text-base font-light uppercase tracking-wider">
+                Телефон
+              </p>
+              <a 
+                href="https://wa.me/79184718383" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-2xl sm:text-3xl md:text-4xl font-light text-deep-gray hover:text-burnt-orange transition-colors duration-300"
+              >
+                +7 (918) 471-83-83
+              </a>
+            </div>
 
-            <a 
-              href="https://wa.me/79184718383" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <Card className="glass-card p-4 sm:p-6 hover-scale h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-burnt-orange/20">
-                <div className="flex flex-col items-center text-center gap-4">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
-                    <Icon name="Phone" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
-                  </div>
-                  <div>
-                    <p className="text-warm-gray/70 text-sm font-light mb-1">Телефон</p>
-                    <p className="text-deep-gray font-light text-base sm:text-lg break-words">
-                      +7 (918) 471-83-83
-                    </p>
-                    <p className="text-burnt-orange text-xs sm:text-sm font-light mt-2">
-                      Нажмите для WhatsApp
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </a>
+            <div className="space-y-4 pt-4 border-t border-warm-gray/10">
+              <p className="text-warm-gray/70 text-sm sm:text-base font-light uppercase tracking-wider">
+                Адрес
+              </p>
+              <p className="text-base sm:text-lg md:text-xl font-light text-deep-gray leading-relaxed">
+                Территория Урочище Кучугуры, 24/27, хутор Верхний, Черноерковское сельское поселение, Славянский район, Краснодарский край
+              </p>
+            </div>
           </div>
 
-          <Card className="glass-card p-2 overflow-hidden lg:row-span-1">
-            <div className="relative w-full h-[300px] sm:h-[350px] lg:h-full rounded-lg overflow-hidden">
+          <Card className="glass-card p-2 overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-lg overflow-hidden">
               <iframe
                 src="https://yandex.ru/map-widget/v1/?ll=37.599902%2C45.543168&z=15&l=map&pt=37.599902,45.543168,pm2rdm"
                 width="100%"
