@@ -14,51 +14,51 @@ export default function ContactsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto mb-8 md:mb-12">
-          <Card className="glass-card p-4 sm:p-6 hover-scale">
-            <div className="flex flex-col items-center text-center gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
-                <Icon name="MapPin" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
-              </div>
-              <div>
-                <p className="text-warm-gray/70 text-sm font-light mb-1">Адрес</p>
-                <p className="text-deep-gray font-light text-base sm:text-lg break-words">
-                  Территория Урочище Кучугуры, 24/27, хутор Верхний, Черноерковское сельское поселение, Славянский район, Краснодарский край
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <a 
-            href="https://wa.me/79184718383" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block"
-          >
-            <Card className="glass-card p-4 sm:p-6 hover-scale h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-burnt-orange/20">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4 sm:gap-6">
+            <Card className="glass-card p-4 sm:p-6 hover-scale">
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
-                  <Icon name="Phone" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
+                  <Icon name="MapPin" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
                 </div>
                 <div>
-                  <p className="text-warm-gray/70 text-sm font-light mb-1">Телефон</p>
+                  <p className="text-warm-gray/70 text-sm font-light mb-1">Адрес</p>
                   <p className="text-deep-gray font-light text-base sm:text-lg break-words">
-                    +7 (918) 471-83-83
-                  </p>
-                  <p className="text-burnt-orange text-xs sm:text-sm font-light mt-2">
-                    Нажмите для WhatsApp
+                    Территория Урочище Кучугуры, 24/27, хутор Верхний, Черноерковское сельское поселение, Славянский район, Краснодарский край
                   </p>
                 </div>
               </div>
             </Card>
-          </a>
-        </div>
 
-        <div className="max-w-5xl mx-auto">
-          <Card className="glass-card p-2 sm:p-4 overflow-hidden">
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+            <a 
+              href="https://wa.me/79184718383" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="glass-card p-4 sm:p-6 hover-scale h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-burnt-orange/20">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center flex-shrink-0">
+                    <Icon name="Phone" size={22} className="sm:w-[26px] sm:h-[26px] text-white" />
+                  </div>
+                  <div>
+                    <p className="text-warm-gray/70 text-sm font-light mb-1">Телефон</p>
+                    <p className="text-deep-gray font-light text-base sm:text-lg break-words">
+                      +7 (918) 471-83-83
+                    </p>
+                    <p className="text-burnt-orange text-xs sm:text-sm font-light mt-2">
+                      Нажмите для WhatsApp
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </a>
+          </div>
+
+          <Card className="glass-card p-2 overflow-hidden lg:row-span-1">
+            <div className="relative w-full h-[300px] sm:h-[350px] lg:h-full rounded-lg overflow-hidden">
               <iframe
-                src="https://yandex.ru/map-widget/v1/?ll=37.956467%2C45.359772&z=15&l=map&pt=37.956467,45.359772,pm2rdm"
+                src="https://yandex.ru/map-widget/v1/?ll=37.599902%2C45.543168&z=15&l=map&pt=37.599902,45.543168,pm2rdm"
                 width="100%"
                 height="100%"
                 frameBorder="0"
