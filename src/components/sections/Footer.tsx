@@ -11,16 +11,11 @@ export default function Footer() {
         <p className="text-sm sm:text-base text-warm-gray mb-4 md:mb-6 font-light">
           Туристическая база на первой линии моря
         </p>
-        <div className="flex justify-center gap-4 sm:gap-6 mb-4 md:mb-6">
-          {['Instagram', 'Facebook', 'MessageCircle'].map((icon) => (
-            <button key={icon} className="glass-card p-2 sm:p-3 rounded-full hover-scale">
-              <Icon name={icon} size={18} className="sm:w-5 sm:h-5 text-deep-gray" />
-            </button>
-          ))}
+        <div className="text-warm-gray/60 text-xs sm:text-sm font-light space-y-1">
+          <p>© 2025 Горизонт. Все права защищены.</p>
+          <p>ИП Камышанский Сергей Александрович</p>
+          <p>ИНН 234903871201 • ОГРН 323237500361307</p>
         </div>
-        <p className="text-warm-gray/60 text-sm font-light">
-          © 2025 Горизонт. Все права защищены.
-        </p>
       </div>
     </footer>
   );
