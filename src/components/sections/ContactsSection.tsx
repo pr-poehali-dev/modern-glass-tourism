@@ -15,7 +15,7 @@ export default function ContactsSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto items-start">
-          <div className="glass-card p-6 sm:p-8 md:p-10 space-y-6">
+          <div className="p-6 sm:p-8 md:p-10 space-y-6">
             <div className="space-y-4">
               <p className="text-warm-gray/70 text-sm sm:text-base font-light uppercase tracking-wider">
                 Телефон
