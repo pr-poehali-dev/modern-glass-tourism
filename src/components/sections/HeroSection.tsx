@@ -1,13 +1,32 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { useEffect, useState } from 'react';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
+  const [scrollY, setScrollY] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      const fadeStart = 300;
+      const fadeEnd = 800;
+      const newOpacity = Math.max(0, Math.min(1, 1 - (currentScrollY - fadeStart) / (fadeEnd - fadeStart)));
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4">
+    <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 relative">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="space-y-4 sm:space-y-6 animate-fade-in">
@@ -58,16 +77,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
 
           <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="glass-elevated overflow-hidden aspect-[4/3]">
-              <img 
-                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" 
-                alt="Вид на море"
-                className="w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <div className="hidden md:block absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">
+            <div className="hidden md:block absolute -bottom-6 -right-6 glass-card p-6 max-w-xs z-10">
               <div className="flex items-center gap-3 mb-2">
                 <Icon name="Star" size={24} className="text-accent-orange fill-accent-orange" />
                 <span className="text-3xl font-light text-deep-gray">5.0</span>
@@ -75,6 +85,31 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               <p className="text-sm text-warm-gray font-light">Средняя оценка гостей</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div 
+        className="absolute left-0 right-0 bottom-0 h-[60vh] overflow-hidden pointer-events-none"
+        style={{
+          opacity: opacity,
+          transition: 'opacity 0.1s linear'
+        }}
+      >
+        <div
+          className="relative w-full h-full"
+          style={{
+            transform: `translateY(${scrollY * 0.4}px)`,
+            willChange: 'transform'
+          }}
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1920&q=80" 
+            alt="Вид на море"
+            className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-transparent to-transparent" />
         </div>
       </div>
     </section>
