@@ -9,8 +9,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
     <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 sm:space-y-6 animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight">
               <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent">
                 Ваш райский
@@ -24,7 +24,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               для незабываемого отдыха
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4 pt-2 sm:pt-4">
               <Button 
                 size="lg" 
                 className="glass-button hover-scale font-light"
@@ -43,7 +43,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-8">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8">
               {[
                 { icon: 'Waves', text: 'Первая линия' },
                 { icon: 'Droplets', text: 'Бассейн' },

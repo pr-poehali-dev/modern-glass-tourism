@@ -22,7 +22,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   return (
     <section id="booking" className="py-8 md:py-12 px-4">
       <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-6 md:mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
             Забронировать номер
           </h2>
@@ -31,8 +31,8 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           </p>
         </div>
 
-        <Card className="glass-elevated p-4 sm:p-6 md:p-8">
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+        <Card className="glass-elevated p-3 sm:p-6 md:p-8">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <div>
               <Label htmlFor="name">Имя</Label>
               <Input 
@@ -105,7 +105,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
             </div>
           </div>
 
-          <Button className="w-full mt-6 glass-button font-light text-base py-6">
+          <Button className="w-full mt-4 sm:mt-6 glass-button font-light text-sm sm:text-base py-5 sm:py-6">
             Отправить заявку
             <Icon name="Send" size={18} className="ml-2" />
           </Button>

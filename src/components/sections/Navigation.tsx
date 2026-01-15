@@ -25,10 +25,10 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Waves" size={32} className="text-burnt-orange" />
-            <span className="text-2xl font-light tracking-wide text-deep-gray">
+            <Icon name="Waves" size={28} className="sm:w-8 sm:h-8 text-burnt-orange" />
+            <span className="text-xl sm:text-2xl font-light tracking-wide text-deep-gray">
               Горизонт
             </span>
           </div>
@@ -37,14 +37,14 @@ export default function Navigation({ onNavigate }: NavigationProps) {
             onClick={() => setIsOpen(!isOpen)}
             className="glass-button font-light"
           >
-            <Icon name={isOpen ? "X" : "Menu"} size={24} />
+            <Icon name={isOpen ? "X" : "Menu"} size={20} className="sm:w-6 sm:h-6" />
           </Button>
         </div>
       </nav>
 
       {/* Бургер-меню */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-[#070a12]/95 backdrop-blur-xl z-40 transform transition-transform duration-300 shadow-2xl ${
+        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-[#070a12]/95 backdrop-blur-xl z-40 transform transition-transform duration-300 shadow-2xl ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

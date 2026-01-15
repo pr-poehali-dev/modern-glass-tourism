@@ -158,21 +158,21 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
       </section>
 
       {selectedRoom && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
           <div 
             className="absolute inset-0 bg-black/70 backdrop-blur-md"
             onClick={closeModal}
           />
           
-          <div className="relative bg-[#070a12]/95 backdrop-blur-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10">
+          <div className="relative bg-[#070a12]/95 backdrop-blur-xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 glass-card p-2 hover-scale"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 glass-card p-1.5 sm:p-2 hover-scale"
             >
-              <Icon name="X" size={24} className="text-deep-gray" />
+              <Icon name="X" size={20} className="sm:w-6 sm:h-6 text-deep-gray" />
             </button>
 
-            <div className="relative h-64 sm:h-80 md:h-96 bg-black">
+            <div className="relative h-48 sm:h-80 md:h-96 bg-black">
               <img
                 src={selectedRoom.gallery[currentImageIndex]}
                 alt={`${selectedRoom.title} - фото ${currentImageIndex + 1}`}
@@ -210,7 +210,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
               </div>
             </div>
 
-            <div className="p-4 sm:p-6 md:p-8">
+            <div className="p-3 sm:p-6 md:p-8">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
                 <h3 className="text-2xl sm:text-3xl font-light text-deep-gray tracking-wide">
                   {selectedRoom.title}
