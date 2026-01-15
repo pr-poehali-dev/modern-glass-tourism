@@ -26,6 +26,17 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   const { ref, isVisible } = useScrollReveal();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [forceVisible, setForceVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isVisible) {
+        setForceVisible(true);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [isVisible]);
   const [availabilityInfo, setAvailabilityInfo] = useState<{
     available: boolean;
     available_count: number;
@@ -171,7 +182,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           </p>
         </div>
 
-        <Card ref={ref} className={`glass-elevated p-3 sm:p-6 md:p-8 scroll-reveal ${isVisible ? 'visible' : ''}`}>
+        <Card ref={ref} className={`glass-elevated p-3 sm:p-6 md:p-8 scroll-reveal ${isVisible || forceVisible ? 'visible' : ''}`}>
           <form onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <div>

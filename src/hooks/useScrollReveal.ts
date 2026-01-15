@@ -12,18 +12,20 @@ export function useScrollReveal() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(element);
         }
       },
       {
-        threshold: 0.05,
-        rootMargin: '0px 0px -80px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
     observer.observe(element);
 
     return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
       observer.disconnect();
     };
   }, []);
