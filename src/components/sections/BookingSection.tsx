@@ -138,9 +138,24 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
       const data = await response.json();
 
       if (response.ok) {
+        const checkInFormatted = new Date(bookingData.checkIn).toLocaleDateString('ru-RU');
+        const checkOutFormatted = new Date(bookingData.checkOut).toLocaleDateString('ru-RU');
+        
+        const whatsappMessage = `Добрый день! Хотел бы забронировать номер "${bookingData.roomType}".
+
+📅 Заезд: ${checkInFormatted}
+📅 Выезд: ${checkOutFormatted}
+👥 Количество гостей: ${bookingData.guests}
+👤 Имя: ${bookingData.name}
+📱 Телефон: ${bookingData.phone}`;
+
+        const whatsappUrl = `https://wa.me/79184718383?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        window.open(whatsappUrl, '_blank');
+        
         toast({
-          title: '🎉 Бронирование создано!',
-          description: `Номер ${data.booking_id} забронирован на ${data.total_nights} ночей. Мы свяжемся с вами в ближайшее время`,
+          title: '✅ Переход в WhatsApp',
+          description: 'Завершите бронирование в чате с администратором',
         });
         
         onBookingChange({
