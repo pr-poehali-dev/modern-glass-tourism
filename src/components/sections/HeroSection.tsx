@@ -89,7 +89,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       </div>
 
       <div 
-        className="absolute left-0 right-0 bottom-0 h-[60vh] overflow-hidden pointer-events-none"
+        className="absolute left-0 right-0 bottom-0 h-[60vh] overflow-hidden pointer-events-none -z-10"
         style={{
           opacity: opacity,
           transition: 'opacity 0.1s linear'
@@ -108,8 +108,11 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             className="w-full h-full object-cover"
             loading="eager"
             decoding="async"
+            style={{
+              maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%)',
+              WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%)'
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/50 to-transparent" />
         </div>
       </div>
     </section>
