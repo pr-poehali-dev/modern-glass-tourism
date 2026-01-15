@@ -34,9 +34,14 @@ export default function ContactsSection() {
               <p className="text-warm-gray/70 text-sm sm:text-base font-light uppercase tracking-wider">
                 Адрес
               </p>
-              <p className="text-base sm:text-lg md:text-xl font-light text-deep-gray leading-relaxed">
+              <a
+                href="https://yandex.ru/maps/?from=mapframe&ll=37.599902%2C45.543168&pt=37.599902%2C45.543168&source=mapframe&utm_source=mapframe&z=15"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-base sm:text-lg md:text-xl font-light text-deep-gray hover:text-burnt-orange transition-colors duration-300 leading-relaxed"
+              >
                 Территория Урочище Кучугуры, 24/27, хутор Верхний, Черноерковское сельское поселение, Славянский район, Краснодарский край
-              </p>
+              </a>
             </div>
           </div>
 
