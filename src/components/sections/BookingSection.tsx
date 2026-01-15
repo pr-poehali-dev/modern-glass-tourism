@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface BookingData {
   name: string;
@@ -19,6 +20,7 @@ interface BookingSectionProps {
 }
 
 export default function BookingSection({ bookingData, onBookingChange }: BookingSectionProps) {
+  const { ref, isVisible } = useScrollReveal();
   return (
     <section id="booking" className="py-8 md:py-12 px-4">
       <div className="container mx-auto max-w-3xl">
@@ -31,7 +33,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           </p>
         </div>
 
-        <Card className="glass-elevated p-3 sm:p-6 md:p-8">
+        <Card ref={ref} className={`glass-elevated p-3 sm:p-6 md:p-8 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             <div>
               <Label htmlFor="name">Имя</Label>

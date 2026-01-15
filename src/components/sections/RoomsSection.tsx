@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface RoomsSectionProps {
   onBookRoom: (roomType: string) => void;
@@ -20,6 +21,7 @@ interface Room {
 export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { ref, isVisible } = useScrollReveal();
 
   const rooms: Room[] = [
     {
@@ -104,7 +106,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+          <div ref={ref} className={`grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto scroll-reveal ${isVisible ? 'visible' : ''}`}>
             {rooms.map((room) => (
               <Card 
                 key={room.title} 

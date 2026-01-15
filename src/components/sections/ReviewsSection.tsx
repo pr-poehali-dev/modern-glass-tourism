@@ -1,7 +1,9 @@
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export default function ReviewsSection() {
+  const { ref, isVisible } = useScrollReveal();
   const reviews = [
     {
       name: 'Анна Петрова',
@@ -35,7 +37,7 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div ref={ref} className={`grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           {reviews.map((review, idx) => (
             <Card key={idx} className="glass-card p-4 sm:p-6 hover-scale">
               <div className="flex items-center gap-1 mb-4">
