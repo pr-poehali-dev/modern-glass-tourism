@@ -24,15 +24,10 @@ export default function Preloader() {
           <Icon name="Waves" size={80} className="text-burnt-orange mx-auto relative" />
         </div>
         
-        <div className="space-y-2">
-          <h1 className="text-4xl font-extralight text-deep-gray tracking-wide">
-            Горизонт
-          </h1>
-          <div className="flex justify-center gap-1">
-            <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-            <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-            <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-          </div>
+        <div className="flex justify-center gap-1">
+          <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+          <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+          <div className="w-2 h-2 bg-burnt-orange rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
         </div>
       </div>
     </div>
