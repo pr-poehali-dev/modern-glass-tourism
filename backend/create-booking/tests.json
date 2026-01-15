@@ -1,0 +1,48 @@
+{
+  "tests": [
+    {
+      "name": "Create booking with valid data",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров",
+        "phone": "+7 (918) 123-45-67",
+        "checkIn": "2026-02-15",
+        "checkOut": "2026-02-20",
+        "roomType": "Комфорт",
+        "guests": 2
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "booking": {
+          "id": "number",
+          "guestName": "string",
+          "roomType": "string",
+          "totalNights": "number"
+        },
+        "message": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject booking with missing fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Петров"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS request for CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
