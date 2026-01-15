@@ -63,6 +63,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" 
                 alt="Вид на море"
                 className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
               />
             </div>
             <div className="hidden md:block absolute -bottom-6 -right-6 glass-card p-6 max-w-xs">

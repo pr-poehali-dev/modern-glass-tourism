@@ -115,6 +115,8 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
                     src={room.image} 
                     alt={room.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-burnt-orange/90 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg">
                     <span className="text-lg sm:text-2xl font-extralight">{room.price}</span>
@@ -175,6 +177,8 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
                 src={selectedRoom.gallery[currentImageIndex]}
                 alt={`${selectedRoom.title} - фото ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               
               <button
