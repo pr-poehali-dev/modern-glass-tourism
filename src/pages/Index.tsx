@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/sections/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
+import ParallaxSection from '@/components/sections/ParallaxSection';
 import RoomsSection from '@/components/sections/RoomsSection';
 import BookingSection from '@/components/sections/BookingSection';
 import ReviewsSection from '@/components/sections/ReviewsSection';
@@ -38,6 +39,7 @@ export default function Index() {
       <div className="relative z-10">
         <Navigation onNavigate={scrollToSection} />
         <HeroSection onNavigate={scrollToSection} />
+        <ParallaxSection />
         <RoomsSection onBookRoom={handleBookRoom} />
         <BookingSection bookingData={bookingData} onBookingChange={handleBookingChange} />
         <ReviewsSection />
