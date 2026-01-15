@@ -93,7 +93,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
 
   return (
     <>
-      <section id="rooms" className="py-12 md:py-20 px-4">
+      <section id="rooms" className="py-8 md:py-12 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">

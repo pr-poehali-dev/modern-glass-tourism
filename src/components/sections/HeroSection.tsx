@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
-    <section id="home" className="pt-24 md:pt-32 pb-12 md:pb-20 px-4">
+    <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">

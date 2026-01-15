@@ -20,7 +20,7 @@ interface BookingSectionProps {
 
 export default function BookingSection({ bookingData, onBookingChange }: BookingSectionProps) {
   return (
-    <section id="booking" className="py-12 md:py-20 px-4">
+    <section id="booking" className="py-8 md:py-12 px-4">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
