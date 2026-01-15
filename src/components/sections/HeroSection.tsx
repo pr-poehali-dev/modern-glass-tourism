@@ -36,7 +36,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-burnt-orange/50 text-deep-gray hover:bg-burnt-orange/20 font-light backdrop-blur-xl"
+                className="border-2 border-burnt-orange/50 text-deep-gray hover:bg-burnt-orange/10 hover:border-burnt-orange transition-all duration-300 font-light backdrop-blur-xl"
                 onClick={() => onNavigate('rooms')}
               >
                 Посмотреть номера
