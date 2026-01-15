@@ -32,7 +32,7 @@ def handler(event: dict, context) -> dict:
         }
 
     body = json.loads(event.get('body', '{}'))
-    room_type = body.get('room_type', '').strip()
+    room_type = body.get('room_type', '').strip()[:50]
     check_in = body.get('check_in_date', '').strip()
     check_out = body.get('check_out_date', '').strip()
 
@@ -59,8 +59,19 @@ def handler(event: dict, context) -> dict:
         }
 
     try:
-        datetime.fromisoformat(check_in)
-        datetime.fromisoformat(check_out)
+        check_in_dt = datetime.fromisoformat(check_in)
+        check_out_dt = datetime.fromisoformat(check_out)
+        
+        if check_in_dt >= check_out_dt:
+            return {
+                'statusCode': 400,
+                'headers': {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({'error': 'Invalid date range'}, ensure_ascii=False),
+                'isBase64Encoded': False
+            }
     except ValueError:
         return {
             'statusCode': 400,

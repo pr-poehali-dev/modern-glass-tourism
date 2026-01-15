@@ -1,6 +1,7 @@
 import json
 import os
 import psycopg2
+import re
 from datetime import datetime
 
 
@@ -65,13 +66,63 @@ def handler(event: dict, context) -> dict:
             'isBase64Encoded': False
         }
     
-    # Извлечение данных
-    guest_name = body['name'].strip()
-    guest_phone = body['phone'].strip()
+    # Извлечение и санитизация данных
+    guest_name = body['name'].strip()[:255]
+    guest_phone = body['phone'].strip()[:20]
     check_in = body['checkIn']
     check_out = body['checkOut']
     room_type = body['roomType']
     guests_count = int(body['guests'])
+    
+    # Валидация имени (только буквы, пробелы, дефисы)
+    if not re.match(r'^[а-яА-ЯёЁa-zA-Z\s\-]+$', guest_name):
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'Invalid name format'}),
+            'isBase64Encoded': False
+        }
+    
+    # Валидация телефона (только цифры, +, пробелы, скобки, дефисы)
+    if not re.match(r'^[\d\+\s\(\)\-]+$', guest_phone):
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'Invalid phone format'}),
+            'isBase64Encoded': False
+        }
+    
+    # Валидация формата дат
+    try:
+        check_in_dt = datetime.fromisoformat(check_in)
+        check_out_dt = datetime.fromisoformat(check_out)
+        
+        if check_in_dt >= check_out_dt:
+            return {
+                'statusCode': 400,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({'error': 'Check-out date must be after check-in date'}),
+                'isBase64Encoded': False
+            }
+    except ValueError:
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'Invalid date format'}),
+            'isBase64Encoded': False
+        }
     
     # Дополнительная валидация
     if room_type not in ['Комфорт', 'Премиум']:
