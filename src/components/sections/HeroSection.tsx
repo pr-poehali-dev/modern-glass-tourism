@@ -66,7 +66,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               {[
                 { icon: 'Waves', text: 'Первая линия' },
                 { icon: 'Droplets', text: 'Бассейн' },
-                { icon: 'Home', text: 'Комфорт' }
+                { icon: 'PawPrint', text: 'С питомцами' }
               ].map((feature) => (
                 <div key={feature.text} className="glass-card p-2 sm:p-4 text-center hover-scale">
                   <Icon name={feature.icon} size={24} className="sm:w-8 sm:h-8 mx-auto mb-1 sm:mb-2 text-burnt-orange" />
