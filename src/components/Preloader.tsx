@@ -3,19 +3,27 @@ import Icon from '@/components/ui/icon';
 
 export default function Preloader() {
   const [isVisible, setIsVisible] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const fadeTimer = setTimeout(() => {
+      setFadeOut(true);
+    }, 1700);
+
+    const hideTimer = setTimeout(() => {
       setIsVisible(false);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+    };
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-500">
+    <div className={`fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-300 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
       <div className="text-center space-y-6 animate-fade-in">
         <div className="relative">
           <div className="absolute inset-0 animate-ping">

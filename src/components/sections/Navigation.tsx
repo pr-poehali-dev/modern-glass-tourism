@@ -44,7 +44,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
 
       {/* Бургер-меню */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-[#070a12]/95 backdrop-blur-xl z-40 transform transition-transform duration-300 shadow-2xl ${
+        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-[#070a12]/95 backdrop-blur-xl z-40 transform transition-all duration-300 ease-out shadow-2xl ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -54,7 +54,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className="w-full text-left px-6 py-4 text-deep-gray hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-all font-light text-lg"
+                className="w-full text-left px-6 py-4 text-deep-gray hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-all duration-200 font-light text-lg"
               >
                 {item.name}
               </button>

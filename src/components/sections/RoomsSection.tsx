@@ -72,11 +72,13 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
   const openModal = (room: Room) => {
     setSelectedRoom(room);
     setCurrentImageIndex(0);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedRoom(null);
     setCurrentImageIndex(0);
+    document.body.style.overflow = '';
   };
 
   const nextImage = () => {
@@ -160,9 +162,9 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
       </section>
 
       {selectedRoom && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 animate-fade-in">
           <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
+            className="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity duration-300"
             onClick={closeModal}
           />
           

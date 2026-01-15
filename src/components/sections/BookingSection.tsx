@@ -33,6 +33,8 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   }>({ available: false, available_count: 0, checking: false });
 
   useEffect(() => {
+    let isCancelled = false;
+
     const checkAvailability = async () => {
       if (!bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType) {
         setAvailabilityInfo({ available: false, available_count: 0, checking: false });
@@ -57,6 +59,8 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           })
         });
 
+        if (isCancelled) return;
+
         const data = await response.json();
 
         if (response.ok) {
@@ -69,12 +73,17 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           setAvailabilityInfo({ available: false, available_count: 0, checking: false });
         }
       } catch (error) {
-        setAvailabilityInfo({ available: false, available_count: 0, checking: false });
+        if (!isCancelled) {
+          setAvailabilityInfo({ available: false, available_count: 0, checking: false });
+        }
       }
     };
 
-    const timer = setTimeout(checkAvailability, 500);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(checkAvailability, 400);
+    return () => {
+      isCancelled = true;
+      clearTimeout(timer);
+    };
   }, [bookingData.checkIn, bookingData.checkOut, bookingData.roomType]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -240,14 +249,16 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           <Button 
             type="submit"
             disabled={isLoading || availabilityInfo.checking || !availabilityInfo.available || !bookingData.name || !bookingData.phone}
-            className="w-full mt-4 sm:mt-6 glass-button font-light text-sm sm:text-base py-5 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-4 sm:mt-6 glass-button font-light text-sm sm:text-base py-5 sm:py-6 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Отправляем...' : 
-             availabilityInfo.checking ? 'Проверяем даты...' :
-             !bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType ? 'Заполните даты и тип номера' :
-             !availabilityInfo.available ? 'Даты недоступны' :
-             'Забронировать'}
-            {!isLoading && !availabilityInfo.checking && availabilityInfo.available && <Icon name="Send" size={18} className="ml-2" />}
+            <span className="transition-all duration-200">
+              {isLoading ? 'Отправляем...' : 
+               availabilityInfo.checking ? 'Проверяем даты...' :
+               !bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType ? 'Заполните даты и тип номера' :
+               !availabilityInfo.available ? 'Даты недоступны' :
+               'Забронировать'}
+            </span>
+            {!isLoading && !availabilityInfo.checking && availabilityInfo.available && <Icon name="Send" size={18} className="ml-2 transition-transform duration-200" />}
           </Button>
           </form>
         </Card>
