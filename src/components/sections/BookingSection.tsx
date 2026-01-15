@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import func2url from '../../../backend/func2url.json';
 
@@ -29,73 +29,53 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   const [availabilityInfo, setAvailabilityInfo] = useState<{
     available: boolean;
     available_count: number;
-    checked: boolean;
-  } | null>(null);
+    checking: boolean;
+  }>({ available: false, available_count: 0, checking: false });
 
-  const checkAvailability = async () => {
-    if (!bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType) {
-      toast({
-        title: 'Заполните все поля',
-        description: 'Укажите даты заезда, выезда и тип номера',
-        variant: 'destructive'
-      });
-      return;
-    }
+  useEffect(() => {
+    const checkAvailability = async () => {
+      if (!bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType) {
+        setAvailabilityInfo({ available: false, available_count: 0, checking: false });
+        return;
+      }
 
-    if (new Date(bookingData.checkIn) >= new Date(bookingData.checkOut)) {
-      toast({
-        title: 'Некорректные даты',
-        description: 'Дата выезда должна быть позже даты заезда',
-        variant: 'destructive'
-      });
-      return;
-    }
+      if (new Date(bookingData.checkIn) >= new Date(bookingData.checkOut)) {
+        setAvailabilityInfo({ available: false, available_count: 0, checking: false });
+        return;
+      }
 
-    setIsLoading(true);
-    
-    try {
-      const response = await fetch(func2url['check-availability'], {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          room_type: bookingData.roomType,
-          check_in_date: bookingData.checkIn,
-          check_out_date: bookingData.checkOut
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setAvailabilityInfo({
-          available: data.available,
-          available_count: data.available_count,
-          checked: true
+      setAvailabilityInfo(prev => ({ ...prev, checking: true }));
+      
+      try {
+        const response = await fetch(func2url['check-availability'], {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            room_type: bookingData.roomType,
+            check_in_date: bookingData.checkIn,
+            check_out_date: bookingData.checkOut
+          })
         });
 
-        if (data.available) {
-          toast({
-            title: '✅ Номера доступны',
-            description: `Свободно ${data.available_count} из ${data.max_rooms} номеров типа "${bookingData.roomType}"`,
+        const data = await response.json();
+
+        if (response.ok) {
+          setAvailabilityInfo({
+            available: data.available,
+            available_count: data.available_count,
+            checking: false
           });
         } else {
-          toast({
-            title: '❌ Номера недоступны',
-            description: `На выбранные даты все номера типа "${bookingData.roomType}" заняты`,
-            variant: 'destructive'
-          });
+          setAvailabilityInfo({ available: false, available_count: 0, checking: false });
         }
+      } catch (error) {
+        setAvailabilityInfo({ available: false, available_count: 0, checking: false });
       }
-    } catch (error) {
-      toast({
-        title: 'Ошибка',
-        description: 'Не удалось проверить доступность. Попробуйте позже',
-        variant: 'destructive'
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
+
+    const timer = setTimeout(checkAvailability, 500);
+    return () => clearTimeout(timer);
+  }, [bookingData.checkIn, bookingData.checkOut, bookingData.roomType]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,10 +90,10 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
       return;
     }
 
-    if (!availabilityInfo?.checked || !availabilityInfo?.available) {
+    if (!availabilityInfo.available) {
       toast({
-        title: 'Проверьте доступность',
-        description: 'Сначала убедитесь, что номера свободны на выбранные даты',
+        title: 'Даты недоступны',
+        description: 'Выбранные даты заняты. Пожалуйста, выберите другие даты',
         variant: 'destructive'
       });
       return;
@@ -151,7 +131,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
           roomType: '',
           guests: 1
         });
-        setAvailabilityInfo(null);
+        setAvailabilityInfo({ available: false, available_count: 0, checking: false });
       } else {
         toast({
           title: 'Ошибка бронирования',
@@ -257,36 +237,28 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6">
-            <Button 
-              type="button"
-              onClick={checkAvailability}
-              disabled={isLoading}
-              className="flex-1 border-2 border-burnt-orange/50 text-deep-gray hover:bg-burnt-orange/10 hover:border-burnt-orange bg-white/5 backdrop-blur-xl font-light text-sm sm:text-base py-5 sm:py-6"
-            >
-              {isLoading ? 'Проверяем...' : 'Проверить доступность'}
-              <Icon name="Search" size={18} className="ml-2" />
-            </Button>
-            
-            <Button 
-              type="submit"
-              disabled={isLoading || !availabilityInfo?.available}
-              className="flex-1 glass-button font-light text-sm sm:text-base py-5 sm:py-6"
-            >
-              {isLoading ? 'Отправляем...' : 'Забронировать'}
-              <Icon name="Send" size={18} className="ml-2" />
-            </Button>
-          </div>
+          <Button 
+            type="submit"
+            disabled={isLoading || availabilityInfo.checking || !availabilityInfo.available || !bookingData.name || !bookingData.phone}
+            className="w-full mt-4 sm:mt-6 glass-button font-light text-sm sm:text-base py-5 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isLoading ? 'Отправляем...' : 
+             availabilityInfo.checking ? 'Проверяем даты...' :
+             !bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType ? 'Заполните даты и тип номера' :
+             !availabilityInfo.available ? 'Даты недоступны' :
+             'Забронировать'}
+            {!isLoading && !availabilityInfo.checking && availabilityInfo.available && <Icon name="Send" size={18} className="ml-2" />}
+          </Button>
 
-          {availabilityInfo?.checked && (
-            <div className={`mt-4 p-3 rounded border ${
+          {bookingData.checkIn && bookingData.checkOut && bookingData.roomType && !availabilityInfo.checking && (
+            <div className={`mt-4 p-3 rounded border transition-all ${
               availabilityInfo.available 
                 ? 'bg-green-500/10 border-green-500/30 text-green-200' 
                 : 'bg-red-500/10 border-red-500/30 text-red-200'
             }`}>
               <p className="text-sm text-center font-light">
                 {availabilityInfo.available 
-                  ? `✅ Доступно ${availabilityInfo.available_count} номеров` 
+                  ? `✅ Доступно ${availabilityInfo.available_count} ${availabilityInfo.available_count === 1 ? 'номер' : 'номера'}` 
                   : '❌ Все номера заняты на эти даты'}
               </p>
             </div>
