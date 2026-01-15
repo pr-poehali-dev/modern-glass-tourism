@@ -249,20 +249,6 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
              'Забронировать'}
             {!isLoading && !availabilityInfo.checking && availabilityInfo.available && <Icon name="Send" size={18} className="ml-2" />}
           </Button>
-
-          {bookingData.checkIn && bookingData.checkOut && bookingData.roomType && !availabilityInfo.checking && (
-            <div className={`mt-4 p-3 rounded border transition-all ${
-              availabilityInfo.available 
-                ? 'bg-green-500/10 border-green-500/30 text-green-200' 
-                : 'bg-red-500/10 border-red-500/30 text-red-200'
-            }`}>
-              <p className="text-sm text-center font-light">
-                {availabilityInfo.available 
-                  ? `✅ Доступно ${availabilityInfo.available_count} ${availabilityInfo.available_count === 1 ? 'номер' : 'номера'}` 
-                  : '❌ Все номера заняты на эти даты'}
-              </p>
-            </div>
-          )}
           </form>
         </Card>
       </div>
