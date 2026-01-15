@@ -103,13 +103,13 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1920&q=80" 
-            alt="Вид на море"
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
+            alt="Закат над морем"
             className="w-full h-full object-cover"
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/50 to-transparent" />
         </div>
       </div>
     </section>
