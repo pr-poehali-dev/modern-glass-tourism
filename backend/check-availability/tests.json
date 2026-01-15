@@ -1,0 +1,53 @@
+{
+  "tests": [
+    {
+      "name": "Check availability for Комфорт room",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "room_type": "Комфорт",
+        "check_in_date": "2026-02-01",
+        "check_out_date": "2026-02-05"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "available": "boolean",
+        "available_count": "number",
+        "max_rooms": 6,
+        "booked_count": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Check availability for Премиум room",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "room_type": "Премиум",
+        "check_in_date": "2026-03-10",
+        "check_out_date": "2026-03-15"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "available": "boolean",
+        "available_count": "number",
+        "max_rooms": 2,
+        "booked_count": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "room_type": "Комфорт"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
