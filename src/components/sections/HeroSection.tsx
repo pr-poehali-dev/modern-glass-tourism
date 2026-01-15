@@ -30,16 +30,16 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="space-y-4 sm:space-y-6 animate-fade-in relative">
-            <div className="absolute inset-0 backdrop-blur-md bg-black/30 rounded-lg -m-4 sm:-m-6 -z-10"></div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight relative" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)' }}>
-              <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent">
+            <div className="absolute inset-0 backdrop-blur-sm bg-black/20 rounded-lg -m-4 sm:-m-6 -z-10"></div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight relative">
+              <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent drop-shadow-lg">
                 Ваш райский
               </span>
               <br />
-              <span className="text-deep-gray">уголок у моря</span>
+              <span className="text-deep-gray drop-shadow-lg">уголок у моря</span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-warm-gray leading-relaxed font-light relative" style={{ textShadow: '0 3px 8px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.5)' }}>
+            <p className="text-base sm:text-lg md:text-xl text-warm-gray leading-relaxed font-light relative drop-shadow-md">
               Первая линия моря, подогреваемый бассейн и комфортабельные номера 
               для незабываемого отдыха
             </p>
