@@ -58,7 +58,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
 
           <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="glass-elevated rounded-3xl overflow-hidden aspect-[4/3]">
+            <div className="glass-elevated overflow-hidden aspect-[4/3]">
               <img 
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" 
                 alt="Вид на море"

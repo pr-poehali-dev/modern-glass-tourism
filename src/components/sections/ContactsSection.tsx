@@ -46,14 +46,13 @@ export default function ContactsSection() {
           </div>
 
           <Card className="glass-card p-2 overflow-hidden">
-            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[450px] rounded-lg overflow-hidden">
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[450px] overflow-hidden">
               <iframe
                 src="https://yandex.ru/map-widget/v1/?ll=37.599902%2C45.543168&z=15&l=map&pt=37.599902,45.543168,pm2rdm"
                 width="100%"
                 height="100%"
                 frameBorder="0"
                 allowFullScreen
-                className="rounded-lg"
                 title="Карта расположения Горизонт"
               />
             </div>

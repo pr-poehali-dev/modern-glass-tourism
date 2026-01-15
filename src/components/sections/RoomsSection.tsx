@@ -118,7 +118,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-burnt-orange/90 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg">
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-burnt-orange/90 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2">
                     <span className="text-lg sm:text-2xl font-extralight">{room.price}</span>
                     <span className="text-xs sm:text-sm font-light"> ₽/сутки</span>
                   </div>
@@ -164,10 +164,10 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
             onClick={closeModal}
           />
           
-          <div className="relative bg-[#070a12]/95 backdrop-blur-xl rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10">
+          <div className="relative bg-[#070a12]/95 backdrop-blur-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 glass-card p-2 rounded-full hover-scale"
+              className="absolute top-4 right-4 z-10 glass-card p-2 hover-scale"
             >
               <Icon name="X" size={24} className="text-deep-gray" />
             </button>
@@ -183,14 +183,14 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
               
               <button
                 onClick={prevImage}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 rounded-full hover-scale"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 hover-scale"
               >
                 <Icon name="ChevronLeft" size={20} className="sm:w-6 sm:h-6 text-white" />
               </button>
               
               <button
                 onClick={nextImage}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 rounded-full hover-scale"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 hover-scale"
               >
                 <Icon name="ChevronRight" size={20} className="sm:w-6 sm:h-6 text-white" />
               </button>
