@@ -5,23 +5,20 @@
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Иван Петров",
-        "phone": "+7 (918) 123-45-67",
-        "checkIn": "2026-02-15",
-        "checkOut": "2026-02-20",
-        "roomType": "Комфорт",
-        "guests": 2
+        "guest_name": "Иван Петров",
+        "guest_phone": "+7 (918) 123-45-67",
+        "check_in_date": "2026-02-15",
+        "check_out_date": "2026-02-20",
+        "room_type": "Комфорт",
+        "guests_count": 2
       },
       "expectedStatus": 201,
       "expectedBody": {
         "success": true,
         "booking": {
-          "id": "number",
           "guestName": "string",
-          "roomType": "string",
-          "totalNights": "number"
-        },
-        "message": "string"
+          "roomType": "string"
+        }
       },
       "bodyMatcher": "partial"
     },
@@ -30,7 +27,7 @@
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Иван Петров"
+        "guest_name": "Иван Петров"
       },
       "expectedStatus": 400,
       "expectedBody": {

@@ -49,7 +49,7 @@ def handler(event: dict, context) -> dict:
         }
     
     # Валидация обязательных полей
-    required_fields = ['name', 'phone', 'checkIn', 'checkOut', 'roomType', 'guests']
+    required_fields = ['guest_name', 'guest_phone', 'check_in_date', 'check_out_date', 'room_type', 'guests_count']
     missing_fields = [field for field in required_fields if not body.get(field)]
     
     if missing_fields:
@@ -67,12 +67,12 @@ def handler(event: dict, context) -> dict:
         }
     
     # Извлечение и санитизация данных
-    guest_name = body['name'].strip()[:255]
-    guest_phone = body['phone'].strip()[:20]
-    check_in = body['checkIn']
-    check_out = body['checkOut']
-    room_type = body['roomType']
-    guests_count = int(body['guests'])
+    guest_name = body['guest_name'].strip()[:255]
+    guest_phone = body['guest_phone'].strip()[:20]
+    check_in = body['check_in_date']
+    check_out = body['check_out_date']
+    room_type = body['room_type']
+    guests_count = int(body['guests_count'])
     
     # Валидация имени (только буквы, пробелы, дефисы)
     if not re.match(r'^[а-яА-ЯёЁa-zA-Z\s\-]+$', guest_name):
