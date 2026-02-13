@@ -1,29 +1,40 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
-  const [scrollY, setScrollY] = useState(0);
-  const [opacity, setOpacity] = useState(1);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (parallaxRef.current) {
+        parallaxRef.current.style.transform = `translateY(${y * 0.4}px)`;
+      }
+      if (wrapperRef.current) {
+        const fadeStart = 300;
+        const fadeEnd = 800;
+        const opacity = Math.max(0, Math.min(1, 1 - (y - fadeStart) / (fadeEnd - fadeStart)));
+        wrapperRef.current.style.opacity = String(opacity);
+      }
+      rafRef.current = 0;
+    });
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      
-      const fadeStart = 300;
-      const fadeEnd = 800;
-      const newOpacity = Math.max(0, Math.min(1, 1 - (currentScrollY - fadeStart) / (fadeEnd - fadeStart)));
-      setOpacity(newOpacity);
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [handleScroll]);
 
   return (
     <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 relative">
@@ -90,18 +101,13 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       </div>
 
       <div 
+        ref={wrapperRef}
         className="absolute left-0 right-0 bottom-0 h-[60vh] overflow-hidden pointer-events-none -z-10"
-        style={{
-          opacity: opacity,
-          transition: 'opacity 0.1s linear'
-        }}
       >
         <div
+          ref={parallaxRef}
           className="relative w-full h-full"
-          style={{
-            transform: `translateY(${scrollY * 0.4}px)`,
-            willChange: 'transform'
-          }}
+          style={{ willChange: 'transform' }}
         >
           <img 
             src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
