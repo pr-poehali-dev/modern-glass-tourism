@@ -1,4 +1,5 @@
 {
+  "fetch-svg": "https://functions.poehali.dev/d99f5b49-8915-4f12-bb47-d0e8f07abaab",
   "check-availability": "https://functions.poehali.dev/19f6edd3-b304-469f-a494-03355c4d89a9",
   "create-booking": "https://functions.poehali.dev/d39aaf35-f77b-49aa-ace2-a3fe27cc9925"
 }
