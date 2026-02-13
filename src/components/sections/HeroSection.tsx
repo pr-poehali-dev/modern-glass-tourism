@@ -32,7 +32,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           <div className="space-y-4 sm:space-y-6 animate-fade-in relative">
             <div className="absolute inset-0 backdrop-blur-sm bg-black/20 rounded-lg -m-4 sm:-m-6 -z-10"></div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight relative">
-              <span className="bg-gradient-to-r from-burnt-orange via-accent-orange to-warm-gray bg-clip-text text-transparent drop-shadow-lg">
+              <span className="text-burnt-orange drop-shadow-lg">
                 Ваш райский
               </span>
               <br />
