@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Icon from '@/components/ui/icon';
+import Logo from '@/components/Logo';
 
 export default function Preloader() {
   const [isVisible, setIsVisible] = useState(true);
@@ -26,10 +26,10 @@ export default function Preloader() {
     <div className={`fixed inset-0 z-[100] bg-background flex items-center justify-center transition-opacity duration-300 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
       <div className="text-center space-y-6 animate-fade-in">
         <div className="relative">
-          <div className="absolute inset-0 animate-ping">
-            <Icon name="Waves" size={80} className="text-burnt-orange/30 mx-auto" />
+          <div className="absolute inset-0 animate-ping opacity-30">
+            <Logo size={80} className="mx-auto" />
           </div>
-          <Icon name="Waves" size={80} className="text-burnt-orange mx-auto relative" />
+          <Logo size={80} className="mx-auto relative" />
         </div>
         
         <div className="flex justify-center gap-1">

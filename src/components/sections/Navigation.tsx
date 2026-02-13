@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import Logo from '@/components/Logo';
 
 interface NavigationProps {
   onNavigate: (sectionId: string) => void;
@@ -26,8 +27,8 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Icon name="Waves" size={28} className="sm:w-8 sm:h-8 text-burnt-orange" />
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('home')}>
+            <Logo size={36} className="sm:w-10 sm:h-10" />
             <span className="text-xl sm:text-2xl font-light tracking-wide text-deep-gray">
               Горизонт
             </span>
