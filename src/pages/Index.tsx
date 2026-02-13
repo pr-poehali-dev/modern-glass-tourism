@@ -45,6 +45,7 @@ export default function Index() {
         <svg className="absolute w-[200%] h-full opacity-[0.04]" style={{ animation: 'waveFloat3 35s ease-in-out infinite' }} viewBox="0 0 1440 900" preserveAspectRatio="none">
           <path d="M0,500 C360,350 600,550 900,450 C1100,380 1300,550 1440,500 L1440,900 L0,900 Z" fill="hsl(30,8%,85%)" />
         </svg>
+        <div className="absolute inset-0 backdrop-blur-[80px] saturate-[1.2] bg-[rgba(10,14,26,0.6)]" />
       </div>
 
       <div className="relative z-10">
