@@ -7,24 +7,20 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
           <div className="flex items-center gap-3">
             <Logo size={30} />
-            <span
-              className="text-xl text-charcoal"
-              style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
-            >
+            <span className="font-soyuz text-xl font-bold text-charcoal" style={{ letterSpacing: '-0.02em' }}>
               Горизонт
             </span>
           </div>
-
-          <div className="text-center sm:text-right space-y-1">
-            <p className="text-ink-muted text-sm">Туристическая база на первой линии моря</p>
-          </div>
+          <p className="font-aubrey text-ink-muted text-sm sm:text-right">
+            Туристическая база на первой линии моря
+          </p>
         </div>
 
         <div className="editorial-divider my-7" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-ink-muted text-xs">© 2025 Горизонт. Все права защищены.</p>
-          <p className="text-ink-muted text-xs">
+          <p className="font-aubrey text-ink-muted text-xs">© 2025 Горизонт. Все права защищены.</p>
+          <p className="font-aubrey text-ink-muted text-xs">
             ИП Камышанский Сергей Александрович · ИНН 234903871201 · ОГРН 323237500361307
           </p>
         </div>

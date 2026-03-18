@@ -192,13 +192,10 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Онлайн-бронирование</span>
           </div>
-          <h2
-            className="text-4xl sm:text-5xl text-charcoal mb-4"
-            style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
-          >
+          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-4">
             Забронировать номер
           </h2>
-          <p className="text-ink-muted text-lg">
+          <p className="font-aubrey text-ink-muted text-lg">
             Заполните форму — мы свяжемся с вами в WhatsApp
           </p>
         </div>

@@ -34,42 +34,34 @@ export default function ReviewsSection() {
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Впечатления гостей</span>
           </div>
-          <h2
-            className="text-4xl sm:text-5xl text-charcoal mb-4"
-            style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
-          >
-            Отзывы
-          </h2>
-          <p className="text-ink-muted text-lg">Что говорят о нас наши гости</p>
+          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-4">Отзывы</h2>
+          <p className="font-aubrey text-ink-muted text-lg">Что говорят о нас наши гости</p>
         </div>
 
         <div ref={ref} className={`grid sm:grid-cols-3 gap-5 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           {reviews.map((review, idx) => (
             <div key={idx} className="editorial-card p-5 sm:p-6 flex flex-col">
-              {/* Stars */}
               <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
                   <Icon key={i} name="Star" size={16} className="text-terracotta fill-terracotta" />
                 ))}
               </div>
 
-              <p className="text-ink-muted text-sm leading-relaxed flex-1 mb-5">
+              <p className="font-aubrey text-ink-muted text-sm leading-relaxed flex-1 mb-5">
                 «{review.text}»
               </p>
 
               <div className="editorial-divider mb-4" />
               <div className="flex items-center gap-3">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-                  style={{ background: '#F06519', color: '#FDFDF1', fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                  className="font-soyuz w-9 h-9 rounded-full flex items-center justify-center shrink-0 font-bold text-sm"
+                  style={{ background: '#F06519', color: '#FDFDF1' }}
                 >
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-charcoal text-sm" style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}>
-                    {review.name}
-                  </p>
-                  <p className="text-ink-muted text-xs">{review.date}</p>
+                  <p className="font-soyuz text-charcoal text-sm font-bold">{review.name}</p>
+                  <p className="font-aubrey text-ink-muted text-xs">{review.date}</p>
                 </div>
               </div>
             </div>

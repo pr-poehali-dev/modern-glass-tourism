@@ -31,10 +31,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
             onClick={() => onNavigate('home')}
           >
             <Logo size={32} />
-            <span
-              className="text-xl font-display font-bold tracking-tight text-charcoal"
-              style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', letterSpacing: '-0.02em' }}
-            >
+            <span className="font-soyuz text-xl font-bold tracking-tight text-charcoal">
               Горизонт
             </span>
           </div>
@@ -44,16 +41,13 @@ export default function Navigation({ onNavigate }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className="text-sm text-ink-muted hover:text-charcoal transition-colors duration-200"
-                style={{ fontFamily: '"Aubrey", Georgia, serif' }}
+                className="font-aubrey text-sm text-ink-muted hover:text-charcoal transition-colors duration-200"
               >
                 {item.name}
               </button>
             ))}
             <a href="tel:+79184718383">
-              <button
-                className="editorial-button px-4 py-2 text-sm rounded-lg"
-              >
+              <button className="editorial-button font-aubrey px-4 py-2 text-sm rounded-lg">
                 +7 (918) 471-83-83
               </button>
             </a>
@@ -81,8 +75,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className="w-full text-left px-4 py-3 text-charcoal hover:text-terracotta hover:bg-paper-warm rounded-lg transition-all duration-150 text-base"
-                style={{ fontFamily: '"Aubrey", Georgia, serif' }}
+                className="font-aubrey w-full text-left px-4 py-3 text-charcoal hover:text-terracotta hover:bg-paper-warm rounded-lg transition-all duration-150 text-base"
               >
                 {item.name}
               </button>
@@ -90,7 +83,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
           </div>
           <div className="border-t border-warm-border pt-5 pb-8">
             <a href="tel:+79184718383" className="block">
-              <button className="editorial-button w-full py-3 rounded-lg text-sm">
+              <button className="editorial-button font-aubrey w-full py-3 rounded-lg text-sm">
                 <Icon name="Phone" size={16} className="inline mr-2" />
                 +7 (918) 471-83-83
               </button>

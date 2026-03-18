@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 interface HeroSectionProps {
@@ -18,8 +17,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
 
         {/* Heading */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal mb-8 animate-fade-in"
-          style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.0, animationDelay: '0.05s' }}
+          className="font-soyuz text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal mb-8 animate-fade-in"
+          style={{ animationDelay: '0.05s', lineHeight: 1.0, letterSpacing: '-0.03em' }}
         >
           Ваш райский
           <br />
@@ -28,7 +27,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
 
         {/* Description */}
         <p
-          className="text-lg md:text-xl text-ink-muted max-w-xl mb-10 leading-relaxed animate-fade-in"
+          className="font-aubrey text-lg md:text-xl text-ink-muted max-w-xl mb-10 leading-relaxed animate-fade-in"
           style={{ animationDelay: '0.12s' }}
         >
           Первая линия моря, подогреваемый бассейн и комфортабельные номера
@@ -38,14 +37,14 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* CTA buttons */}
         <div className="flex flex-wrap gap-3 mb-16 animate-fade-in" style={{ animationDelay: '0.18s' }}>
           <button
-            className="editorial-button px-6 py-3 rounded-lg text-base"
+            className="editorial-button font-aubrey px-6 py-3 rounded-lg text-base"
             onClick={() => onNavigate('booking')}
           >
             Забронировать
             <Icon name="ArrowRight" size={18} className="inline ml-2" />
           </button>
           <button
-            className="editorial-button-outline px-6 py-3 rounded-lg text-base"
+            className="editorial-button-outline font-aubrey px-6 py-3 rounded-lg text-base"
             onClick={() => onNavigate('rooms')}
           >
             Посмотреть номера
@@ -53,14 +52,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         </div>
 
         {/* Stats row */}
-        <div
-          className="editorial-divider mb-10 animate-fade-in"
-          style={{ animationDelay: '0.22s' }}
-        />
-        <div
-          className="grid grid-cols-3 gap-6 sm:gap-12 animate-fade-in"
-          style={{ animationDelay: '0.26s' }}
-        >
+        <div className="editorial-divider mb-10 animate-fade-in" style={{ animationDelay: '0.22s' }} />
+        <div className="grid grid-cols-3 gap-6 sm:gap-12 animate-fade-in" style={{ animationDelay: '0.26s' }}>
           {[
             { icon: 'Waves', value: 'Первая линия', note: 'прямой выход к морю' },
             { icon: 'Droplets', value: 'Бассейн', note: 'с подогревом' },
@@ -68,10 +61,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           ].map((item) => (
             <div key={item.value} className="space-y-1">
               <Icon name={item.icon} size={20} className="text-terracotta mb-2" />
-              <p className="text-sm font-display font-bold text-charcoal" style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif' }}>
-                {item.value}
-              </p>
-              <p className="text-xs text-ink-muted">{item.note}</p>
+              <p className="font-soyuz text-sm font-bold text-charcoal">{item.value}</p>
+              <p className="font-aubrey text-xs text-ink-muted">{item.note}</p>
             </div>
           ))}
         </div>

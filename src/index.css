@@ -107,12 +107,14 @@
     overflow-x: hidden;
     background-color: #fdfdf1;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.6  0 0 0 0 0.5  0 0 0 0 0.35  0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='600' height='600' filter='url(%23paper)'/%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='fiber'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.02 0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.55  0 0 0 0 0.47  0 0 0 0 0.3  0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23fiber)'/%3E%3C/svg%3E");
-    background-repeat: repeat, repeat;
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.52  0 0 0 0 0.44  0 0 0 0 0.28  0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23grain)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.60' numOctaves='6' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.58  0 0 0 0 0.50  0 0 0 0 0.33  0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23paper)'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='fiber'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.025 0.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.5  0 0 0 0 0.42  0 0 0 0 0.26  0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23fiber)'/%3E%3C/svg%3E");
+    background-repeat: repeat, repeat, repeat;
     background-size:
-      600px 600px,
-      200px 200px;
+      300px 300px,
+      500px 500px,
+      180px 180px;
   }
 
   h1,
@@ -142,6 +144,14 @@
   strong,
   b {
     font-weight: 700;
+  }
+
+  .font-soyuz {
+    font-family: "Soyuz Grotesk", Georgia, serif !important;
+  }
+
+  .font-aubrey {
+    font-family: "Aubrey", Georgia, "Times New Roman", serif !important;
   }
 }
 
