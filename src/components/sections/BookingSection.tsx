@@ -184,7 +184,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   };
 
   return (
-    <section id="booking" className="py-16 md:py-24 px-4">
+    <section id="booking" className="py-10 md:py-14 px-4">
       <div className="container mx-auto max-w-2xl">
 
         <div className="mb-10 md:mb-12">

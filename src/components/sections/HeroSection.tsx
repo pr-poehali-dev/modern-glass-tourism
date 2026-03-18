@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
-    <section id="home" className="pt-28 md:pt-36 pb-16 md:pb-24 px-4">
+    <section id="home" className="pt-24 md:pt-32 pb-10 md:pb-14 px-4">
       <div className="container mx-auto max-w-5xl">
 
         {/* Label */}
@@ -35,7 +35,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         </p>
 
         {/* CTA buttons */}
-        <div className="flex flex-wrap gap-3 mb-16 animate-fade-in" style={{ animationDelay: '0.18s' }}>
+        <div className="flex flex-wrap gap-3 mb-10 animate-fade-in" style={{ animationDelay: '0.18s' }}>
           <button
             className="editorial-button font-aubrey px-6 py-3 rounded-lg text-base"
             onClick={() => onNavigate('booking')}

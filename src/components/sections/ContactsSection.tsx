@@ -2,7 +2,7 @@ import Icon from '@/components/ui/icon';
 
 export default function ContactsSection() {
   return (
-    <section id="contacts" className="py-16 md:py-20 px-4">
+    <section id="contacts" className="py-10 md:py-14 px-4">
       <div className="container mx-auto max-w-5xl">
 
         <div className="mb-10 md:mb-12">

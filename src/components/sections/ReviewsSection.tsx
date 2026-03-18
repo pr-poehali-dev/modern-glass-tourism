@@ -26,10 +26,10 @@ export default function ReviewsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-16 md:py-24 px-4">
+    <section id="reviews" className="py-10 md:py-14 px-4">
       <div className="container mx-auto max-w-5xl">
 
-        <div className="mb-12 md:mb-16">
+        <div className="mb-8 md:mb-10">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Впечатления гостей</span>
