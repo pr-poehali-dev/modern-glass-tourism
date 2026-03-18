@@ -6,72 +6,76 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
-
   return (
-    <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 relative">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-          <div className="space-y-4 sm:space-y-6 animate-fade-in relative">
-            <div className="absolute inset-0 backdrop-blur-sm bg-black/20 rounded-lg -m-4 sm:-m-6 -z-10"></div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight tracking-tight relative">
-              <span className="text-burnt-orange drop-shadow-lg">
-                Ваш райский
-              </span>
-              <br />
-              <span className="text-deep-gray drop-shadow-lg">уголок у моря</span>
-            </h1>
-            
-            <p className="text-base sm:text-lg md:text-xl text-warm-gray leading-relaxed font-light relative drop-shadow-md">
-              Первая линия моря, подогреваемый бассейн и комфортабельные номера 
-              для незабываемого отдыха
-            </p>
+    <section id="home" className="pt-28 md:pt-36 pb-16 md:pb-24 px-4">
+      <div className="container mx-auto max-w-5xl">
 
-            <div className="flex flex-wrap gap-2 sm:gap-4 pt-2 sm:pt-4">
-              <Button 
-                size="lg" 
-                className="glass-button hover-scale font-light"
-                onClick={() => onNavigate('booking')}
-              >
-                Забронировать
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="glass-button-outline hover-scale text-deep-gray"
-                onClick={() => onNavigate('rooms')}
-              >
-                Посмотреть номера
-              </Button>
-            </div>
+        {/* Label */}
+        <div className="flex items-center gap-2 mb-8 animate-fade-in">
+          <span className="w-6 h-px bg-terracotta inline-block" />
+          <span className="label-caps">Туристическая база · Азовское море</span>
+        </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8">
-              {[
-                { icon: 'Waves', text: 'Первая линия' },
-                { icon: 'Droplets', text: 'Бассейн' },
-                { icon: 'PawPrint', text: 'С питомцами' }
-              ].map((feature) => (
-                <div key={feature.text} className="glass-card p-2 sm:p-4 text-center hover-scale">
-                  <Icon name={feature.icon} size={24} className="sm:w-8 sm:h-8 mx-auto mb-1 sm:mb-2 text-burnt-orange" />
-                  <p className="text-xs sm:text-sm font-light text-deep-gray/90">{feature.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Heading */}
+        <h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal mb-8 animate-fade-in"
+          style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.0, animationDelay: '0.05s' }}
+        >
+          Ваш райский
+          <br />
+          <span className="text-terracotta">уголок у моря</span>
+        </h1>
 
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="hidden md:block absolute -bottom-6 -right-6 glass-card p-6 max-w-xs z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Icon name="Star" size={24} className="text-accent-orange fill-accent-orange" />
-                <span className="text-3xl font-light text-deep-gray">5.0</span>
-              </div>
-              <p className="text-sm text-warm-gray font-light">Средняя оценка гостей</p>
+        {/* Description */}
+        <p
+          className="text-lg md:text-xl text-ink-muted max-w-xl mb-10 leading-relaxed animate-fade-in"
+          style={{ animationDelay: '0.12s' }}
+        >
+          Первая линия моря, подогреваемый бассейн и комфортабельные номера
+          для незабываемого отдыха в Краснодарском крае.
+        </p>
+
+        {/* CTA buttons */}
+        <div className="flex flex-wrap gap-3 mb-16 animate-fade-in" style={{ animationDelay: '0.18s' }}>
+          <button
+            className="editorial-button px-6 py-3 rounded-lg text-base"
+            onClick={() => onNavigate('booking')}
+          >
+            Забронировать
+            <Icon name="ArrowRight" size={18} className="inline ml-2" />
+          </button>
+          <button
+            className="editorial-button-outline px-6 py-3 rounded-lg text-base"
+            onClick={() => onNavigate('rooms')}
+          >
+            Посмотреть номера
+          </button>
+        </div>
+
+        {/* Stats row */}
+        <div
+          className="editorial-divider mb-10 animate-fade-in"
+          style={{ animationDelay: '0.22s' }}
+        />
+        <div
+          className="grid grid-cols-3 gap-6 sm:gap-12 animate-fade-in"
+          style={{ animationDelay: '0.26s' }}
+        >
+          {[
+            { icon: 'Waves', value: 'Первая линия', note: 'прямой выход к морю' },
+            { icon: 'Droplets', value: 'Бассейн', note: 'с подогревом' },
+            { icon: 'PawPrint', value: 'С питомцами', note: 'приветствуем' },
+          ].map((item) => (
+            <div key={item.value} className="space-y-1">
+              <Icon name={item.icon} size={20} className="text-terracotta mb-2" />
+              <p className="text-sm font-display font-bold text-charcoal" style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif' }}>
+                {item.value}
+              </p>
+              <p className="text-xs text-ink-muted">{item.note}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-
-
     </section>
   );
 }

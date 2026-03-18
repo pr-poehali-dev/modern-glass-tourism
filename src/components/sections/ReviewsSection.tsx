@@ -1,20 +1,20 @@
-import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export default function ReviewsSection() {
   const { ref, isVisible } = useScrollReveal();
+
   const reviews = [
     {
       name: 'Анна Петрова',
       rating: 5,
-      text: 'Невероятное место! Первая линия моря, чистый пляж, удобная парковка. Обязательно вернемся.',
+      text: 'Невероятное место! Первая линия моря, чистый пляж, удобная парковка. Обязательно вернёмся.',
       date: '15 августа 2024'
     },
     {
       name: 'Дмитрий Иванов',
       rating: 5,
-      text: 'Отдыхали семьей. Номера просторные, веранды большие и уютные. Бассейн с подогревом - огромный плюс!',
+      text: 'Отдыхали семьёй. Номера просторные, веранды большие и уютные. Бассейн с подогревом — огромный плюс!',
       date: '10 августа 2024'
     },
     {
@@ -26,42 +26,53 @@ export default function ReviewsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-8 md:py-12 px-4">
-      <div className="container mx-auto">
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
-            Отзывы гостей
+    <section id="reviews" className="py-16 md:py-24 px-4">
+      <div className="container mx-auto max-w-5xl">
+
+        <div className="mb-12 md:mb-16">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-6 h-px bg-terracotta inline-block" />
+            <span className="label-caps">Впечатления гостей</span>
+          </div>
+          <h2
+            className="text-4xl sm:text-5xl text-charcoal mb-4"
+            style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
+          >
+            Отзывы
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
-            Что говорят о нас наши гости
-          </p>
+          <p className="text-ink-muted text-lg">Что говорят о нас наши гости</p>
         </div>
 
-        <div ref={ref} className={`grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 scroll-reveal ${isVisible ? 'visible' : ''}`}>
+        <div ref={ref} className={`grid sm:grid-cols-3 gap-5 scroll-reveal ${isVisible ? 'visible' : ''}`}>
           {reviews.map((review, idx) => (
-            <Card key={idx} className="glass-card p-4 sm:p-6 hover-scale">
-              <div className="flex items-center gap-1 mb-4">
+            <div key={idx} className="editorial-card p-5 sm:p-6 flex flex-col">
+              {/* Stars */}
+              <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
-                  <Icon key={i} name="Star" size={20} className="text-accent-orange fill-accent-orange" />
+                  <Icon key={i} name="Star" size={16} className="text-terracotta fill-terracotta" />
                 ))}
               </div>
-              
-              <p className="text-sm sm:text-base text-warm-gray font-light mb-4 leading-relaxed">
-                "{review.text}"
+
+              <p className="text-ink-muted text-sm leading-relaxed flex-1 mb-5">
+                «{review.text}»
               </p>
-              
-              <div className="flex items-center gap-3 mt-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-burnt-orange to-accent-orange flex items-center justify-center">
-                  <span className="text-white font-light text-lg">
-                    {review.name.charAt(0)}
-                  </span>
+
+              <div className="editorial-divider mb-4" />
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: '#F06519', color: '#FDFDF1', fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                >
+                  {review.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-deep-gray font-light">{review.name}</p>
-                  <p className="text-warm-gray/70 text-sm font-light">{review.date}</p>
+                  <p className="text-charcoal text-sm" style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}>
+                    {review.name}
+                  </p>
+                  <p className="text-ink-muted text-xs">{review.date}</p>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

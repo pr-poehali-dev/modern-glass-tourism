@@ -1,5 +1,3 @@
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
@@ -186,108 +184,119 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
   };
 
   return (
-    <section id="booking" className="py-8 md:py-12 px-4">
-      <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-6 md:mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
+    <section id="booking" className="py-16 md:py-24 px-4">
+      <div className="container mx-auto max-w-2xl">
+
+        <div className="mb-10 md:mb-12">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-6 h-px bg-terracotta inline-block" />
+            <span className="label-caps">Онлайн-бронирование</span>
+          </div>
+          <h2
+            className="text-4xl sm:text-5xl text-charcoal mb-4"
+            style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
+          >
             Забронировать номер
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
-            Заполните форму и мы свяжемся с вами
+          <p className="text-ink-muted text-lg">
+            Заполните форму — мы свяжемся с вами в WhatsApp
           </p>
         </div>
 
-        <Card ref={ref} className={`glass-elevated p-3 sm:p-6 md:p-8 scroll-reveal ${isVisible || forceVisible ? 'visible' : ''}`}>
+        <div ref={ref} className={`editorial-card-flat p-6 sm:p-8 scroll-reveal ${isVisible || forceVisible ? 'visible' : ''}`}>
           <form onSubmit={handleSubmit}>
-          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-            <div>
-              <Label htmlFor="name">Имя</Label>
-              <Input 
-                id="name"
-                placeholder="Ваше имя"
-                value={bookingData.name}
-                onChange={(e) => onBookingChange({ name: e.target.value })}
-                className="glass-input"
-              />
+            <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+              <div className="space-y-1.5">
+                <Label htmlFor="name" className="label-caps">Имя</Label>
+                <Input
+                  id="name"
+                  placeholder="Ваше имя"
+                  value={bookingData.name}
+                  onChange={(e) => onBookingChange({ name: e.target.value })}
+                  className="editorial-input"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="phone" className="label-caps">Телефон</Label>
+                <Input
+                  id="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  value={bookingData.phone}
+                  onChange={(e) => onBookingChange({ phone: e.target.value })}
+                  className="editorial-input"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="checkIn" className="label-caps">Заезд</Label>
+                <Input
+                  id="checkIn"
+                  type="date"
+                  value={bookingData.checkIn}
+                  onChange={(e) => onBookingChange({ checkIn: e.target.value })}
+                  className="editorial-input"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="checkOut" className="label-caps">Выезд</Label>
+                <Input
+                  id="checkOut"
+                  type="date"
+                  value={bookingData.checkOut}
+                  onChange={(e) => onBookingChange({ checkOut: e.target.value })}
+                  className="editorial-input"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="roomType" className="label-caps">Тип номера</Label>
+                <select
+                  id="roomType"
+                  value={bookingData.roomType}
+                  onChange={(e) => onBookingChange({ roomType: e.target.value })}
+                  className="editorial-input w-full h-10 px-3 rounded-md text-sm"
+                  style={{ fontFamily: '"Aubrey", Georgia, serif' }}
+                >
+                  <option value="">Выберите номер</option>
+                  <option value="Комфорт">Комфорт — 6 000 ₽/сутки</option>
+                  <option value="Премиум">Премиум — 10 000 ₽/сутки</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="guests" className="label-caps">Количество гостей</Label>
+                <Input
+                  id="guests"
+                  type="number"
+                  min="1"
+                  max="6"
+                  value={bookingData.guests}
+                  onChange={(e) => onBookingChange({ guests: parseInt(e.target.value) })}
+                  className="editorial-input"
+                />
+              </div>
             </div>
 
-            <div>
-              <Label htmlFor="phone">Телефон</Label>
-              <Input 
-                id="phone"
-                placeholder="+7 (___) ___-__-__"
-                value={bookingData.phone}
-                onChange={(e) => onBookingChange({ phone: e.target.value })}
-                className="glass-input"
-              />
-            </div>
+            <div className="editorial-divider my-5" />
 
-            <div>
-              <Label htmlFor="checkIn">Заезд</Label>
-              <Input 
-                id="checkIn"
-                type="date"
-                value={bookingData.checkIn}
-                onChange={(e) => onBookingChange({ checkIn: e.target.value })}
-                className="glass-input"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="checkOut">Выезд</Label>
-              <Input 
-                id="checkOut"
-                type="date"
-                value={bookingData.checkOut}
-                onChange={(e) => onBookingChange({ checkOut: e.target.value })}
-                className="glass-input"
-              />
-            </div>
-
-            <div>
-              <Label htmlFor="roomType">Тип номера</Label>
-              <select
-                id="roomType"
-                value={bookingData.roomType}
-                onChange={(e) => onBookingChange({ roomType: e.target.value })}
-                className="glass-input w-full"
-              >
-                <option value="">Выберите номер</option>
-                <option value="Комфорт">Комфорт</option>
-                <option value="Премиум">Премиум</option>
-              </select>
-            </div>
-
-            <div>
-              <Label htmlFor="guests">Количество гостей</Label>
-              <Input 
-                id="guests"
-                type="number"
-                min="1"
-                max="6"
-                value={bookingData.guests}
-                onChange={(e) => onBookingChange({ guests: parseInt(e.target.value) })}
-                className="glass-input"
-              />
-            </div>
-          </div>
-
-          <Button 
-            type="submit"
-            disabled={isLoading || availabilityInfo.checking || !availabilityInfo.available || !bookingData.name || !bookingData.phone}
-            className="w-full mt-4 sm:mt-6 glass-button font-light text-sm sm:text-base py-5 sm:py-6 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <span className="transition-all duration-200">
-              {isLoading ? 'Отправляем...' : 
+            <button
+              type="submit"
+              disabled={isLoading || availabilityInfo.checking || !availabilityInfo.available || !bookingData.name || !bookingData.phone}
+              className="editorial-button w-full py-3.5 rounded-lg text-base disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
+            >
+              {isLoading ? 'Отправляем...' :
                availabilityInfo.checking ? 'Проверяем даты...' :
                !bookingData.checkIn || !bookingData.checkOut || !bookingData.roomType ? 'Заполните даты и тип номера' :
                !availabilityInfo.available ? 'Даты недоступны' :
-               'Забронировать'}
-            </span>
-            {!isLoading && !availabilityInfo.checking && availabilityInfo.available && <Icon name="Send" size={18} className="ml-2 transition-transform duration-200" />}
-          </Button>
+               'Перейти к бронированию'}
+              {!isLoading && !availabilityInfo.checking && availabilityInfo.available && (
+                <Icon name="Send" size={16} className="inline ml-2" />
+              )}
+            </button>
           </form>
-        </Card>
+        </div>
       </div>
     </section>
   );

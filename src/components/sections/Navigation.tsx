@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Logo from '@/components/Logo';
 
@@ -25,58 +24,84 @@ export default function Navigation({ onNavigate }: NavigationProps) {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
-        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => onNavigate('home')}>
-            <Logo size={36} className="sm:w-10 sm:h-10" />
-            <span className="text-xl sm:text-2xl font-light tracking-wide text-deep-gray">
+      <nav className="fixed top-0 left-0 right-0 z-50 editorial-nav">
+        <div className="container mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => onNavigate('home')}
+          >
+            <Logo size={32} />
+            <span
+              className="text-xl font-display font-bold tracking-tight text-charcoal"
+              style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', letterSpacing: '-0.02em' }}
+            >
               Горизонт
             </span>
           </div>
 
-          <Button
-            onClick={() => setIsOpen(!isOpen)}
-            className="glass-button font-light"
-          >
-            <Icon name={isOpen ? "X" : "Menu"} size={20} className="sm:w-6 sm:h-6" />
-          </Button>
-        </div>
-      </nav>
-
-      {/* Бургер-меню */}
-      <div
-        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-[#070a12]/95 backdrop-blur-xl z-40 transform transition-all duration-300 ease-out shadow-2xl ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col h-full pt-24 px-6">
-          <div className="space-y-2 flex-1">
+          <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className="w-full text-left px-6 py-4 text-deep-gray hover:text-burnt-orange hover:bg-burnt-orange/5 rounded-lg transition-all duration-200 font-light text-lg"
+                className="text-sm text-ink-muted hover:text-charcoal transition-colors duration-200"
+                style={{ fontFamily: '"Aubrey", Georgia, serif' }}
+              >
+                {item.name}
+              </button>
+            ))}
+            <a href="tel:+79184718383">
+              <button
+                className="editorial-button px-4 py-2 text-sm rounded-lg"
+              >
+                +7 (918) 471-83-83
+              </button>
+            </a>
+          </div>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-charcoal hover:text-terracotta transition-colors"
+            aria-label="Меню"
+          >
+            <Icon name={isOpen ? 'X' : 'Menu'} size={22} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 bg-paper z-40 transform transition-transform duration-300 ease-out shadow-lg border-l border-warm-border ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full pt-20 px-6">
+          <div className="space-y-1 flex-1">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavigate(item.id)}
+                className="w-full text-left px-4 py-3 text-charcoal hover:text-terracotta hover:bg-paper-warm rounded-lg transition-all duration-150 text-base"
+                style={{ fontFamily: '"Aubrey", Georgia, serif' }}
               >
                 {item.name}
               </button>
             ))}
           </div>
-
-          <div className="border-t border-white/5 pt-6 pb-8">
-            <a href="tel:+79991234567" className="block">
-              <Button className="w-full glass-button font-light justify-center">
-                <Icon name="Phone" size={18} className="mr-2" />
-                +7 (999) 123-45-67
-              </Button>
+          <div className="border-t border-warm-border pt-5 pb-8">
+            <a href="tel:+79184718383" className="block">
+              <button className="editorial-button w-full py-3 rounded-lg text-sm">
+                <Icon name="Phone" size={16} className="inline mr-2" />
+                +7 (918) 471-83-83
+              </button>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Оверлей */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30"
+          className="fixed inset-0 bg-charcoal/30 backdrop-blur-sm z-30"
           onClick={() => setIsOpen(false)}
         />
       )}

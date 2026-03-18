@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -35,7 +33,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
         'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1200&q=80'
       ],
       shortDescription: 'Номер для двоих с кухонной зоной и верандой',
-      description: 'Номер для двоих (третье спальное место предоставляется по запросу). Светлый и уютный. В нем расположена двухспальная кровать, кухонная зона, шкаф для хранения вещей, обеденный столик, ванная комната с душем.',
+      description: 'Номер для двоих (третье спальное место предоставляется по запросу). Светлый и уютный. В нём расположена двухспальная кровать, кухонная зона, шкаф для хранения вещей, обеденный столик, ванная комната с душем.',
       features: [
         'Бесплатный Wi-Fi',
         'Сплит-система',
@@ -56,7 +54,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
         'https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=1200&q=80'
       ],
       shortDescription: 'Двухкомнатный коттедж с панорамным видом на море',
-      description: 'Двухкомнатный коттедж для четырех человек. Индивидуальный выход к бассейну, первая линия с панорамным окном, открывающим бесподобный вид на море. Спальня с двухместной кроватью, большим шифоньером для хранения вещей. Просторный зал с раскладывающимся диваном, комодом и столиком.',
+      description: 'Двухкомнатный коттедж для четырёх человек. Индивидуальный выход к бассейну, первая линия с панорамным окном, открывающим бесподобный вид на море. Спальня с двухместной кроватью, большим шифоньером. Просторный зал с раскладывающимся диваном, комодом и столиком.',
       features: [
         'Собственный выход к бассейну',
         'Панорамное окно с видом на море',
@@ -89,7 +87,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
 
   const prevImage = () => {
     if (selectedRoom) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? selectedRoom.gallery.length - 1 : prev - 1
       );
     }
@@ -97,160 +95,174 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
 
   return (
     <>
-      <section id="rooms" className="py-8 md:py-12 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-8 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extralight text-deep-gray mb-4 tracking-wide">
+      <section id="rooms" className="py-16 md:py-24 px-4">
+        <div className="container mx-auto max-w-5xl">
+
+          {/* Section header */}
+          <div className="mb-12 md:mb-16">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-6 h-px bg-terracotta inline-block" />
+              <span className="label-caps">Размещение</span>
+            </div>
+            <h2
+              className="text-4xl sm:text-5xl text-charcoal mb-4"
+              style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700, letterSpacing: '-0.02em' }}
+            >
               Наши номера
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-warm-gray font-light">
+            <p className="text-ink-muted text-lg max-w-md">
               Выберите идеальный вариант для вашего отдыха
             </p>
           </div>
 
-          <div ref={ref} className={`grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto scroll-reveal ${isVisible ? 'visible' : ''}`}>
+          <div ref={ref} className={`grid md:grid-cols-2 gap-6 scroll-reveal ${isVisible ? 'visible' : ''}`}>
             {rooms.map((room) => (
-              <Card 
-                key={room.title} 
-                className="glass-card overflow-hidden hover-scale"
-              >
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <img 
-                    src={room.image} 
+              <div key={room.title} className="editorial-card overflow-hidden group">
+                {/* Image */}
+                <div className="relative h-52 sm:h-60 overflow-hidden">
+                  <img
+                    src={room.image}
                     alt={room.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-burnt-orange/90 backdrop-blur-sm text-white px-3 sm:px-4 py-1.5 sm:py-2">
-                    <span className="text-lg sm:text-2xl font-extralight">{room.price}</span>
-                    <span className="text-xs sm:text-sm font-light"> ₽/сутки</span>
+                  <div className="absolute top-3 right-3 bg-[#FDFDF1]/90 backdrop-blur-sm px-3 py-1.5 rounded-md border border-warm-border">
+                    <span
+                      className="text-xl text-charcoal"
+                      style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                    >
+                      {room.price}
+                    </span>
+                    <span className="text-xs text-ink-muted ml-1">₽/сутки</span>
                   </div>
                 </div>
 
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-xl sm:text-2xl font-light text-deep-gray mb-2 tracking-wide">
+                {/* Content */}
+                <div className="p-5 sm:p-6">
+                  <h3
+                    className="text-2xl text-charcoal mb-2"
+                    style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                  >
                     {room.title}
                   </h3>
-                  
-                  <p className="text-warm-gray/80 font-light text-sm mb-4 leading-relaxed">
+                  <p className="text-ink-muted text-sm leading-relaxed mb-5">
                     {room.shortDescription}
                   </p>
-
+                  <div className="editorial-divider mb-5" />
                   <div className="flex gap-3">
-                    <Button 
-                      variant="outline"
-                      className="flex-1 glass-card border-burnt-orange/20 hover:bg-burnt-orange/5 font-light"
+                    <button
+                      className="editorial-button-outline flex-1 py-2.5 text-sm rounded-lg"
                       onClick={() => openModal(room)}
                     >
                       Подробнее
-                      <Icon name="ChevronRight" size={16} className="ml-2" />
-                    </Button>
-                    
-                    <Button 
-                      className="flex-1 glass-button font-light"
+                      <Icon name="ChevronRight" size={15} className="inline ml-1" />
+                    </button>
+                    <button
+                      className="editorial-button flex-1 py-2.5 text-sm rounded-lg"
                       onClick={() => onBookRoom(room.title)}
                     >
                       Забронировать
-                    </Button>
+                    </button>
                   </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Modal */}
       {selectedRoom && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 animate-fade-in">
-          <div 
-            className="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity duration-300"
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 animate-fade-in">
+          <div
+            className="absolute inset-0 bg-charcoal/50 backdrop-blur-sm"
             onClick={closeModal}
           />
-          
-          <div className="relative bg-[#070a12]/95 backdrop-blur-xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10">
+
+          <div className="relative bg-paper max-w-3xl w-full max-h-[92vh] overflow-y-auto rounded-xl border border-warm-border shadow-xl">
+            {/* Close */}
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 glass-card p-1.5 sm:p-2 hover-scale"
+              className="absolute top-3 right-3 z-10 p-2 bg-paper rounded-lg border border-warm-border hover:bg-paper-warm transition-colors"
             >
-              <Icon name="X" size={20} className="sm:w-6 sm:h-6 text-deep-gray" />
+              <Icon name="X" size={18} className="text-charcoal" />
             </button>
 
-            <div className="relative h-48 sm:h-80 md:h-96 bg-black">
+            {/* Gallery */}
+            <div className="relative h-52 sm:h-72 md:h-80 bg-paper-warm overflow-hidden rounded-t-xl">
               <img
                 src={selectedRoom.gallery[currentImageIndex]}
-                alt={`${selectedRoom.title} - фото ${currentImageIndex + 1}`}
+                alt={`${selectedRoom.title} — фото ${currentImageIndex + 1}`}
                 className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
-              
               <button
                 onClick={prevImage}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 hover-scale"
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-paper/80 backdrop-blur-sm rounded-lg border border-warm-border hover:bg-paper transition-colors"
               >
-                <Icon name="ChevronLeft" size={20} className="sm:w-6 sm:h-6 text-white" />
+                <Icon name="ChevronLeft" size={18} className="text-charcoal" />
               </button>
-              
               <button
                 onClick={nextImage}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 glass-card p-2 sm:p-3 hover-scale"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-paper/80 backdrop-blur-sm rounded-lg border border-warm-border hover:bg-paper transition-colors"
               >
-                <Icon name="ChevronRight" size={20} className="sm:w-6 sm:h-6 text-white" />
+                <Icon name="ChevronRight" size={18} className="text-charcoal" />
               </button>
-
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                 {selectedRoom.gallery.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentImageIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      idx === currentImageIndex 
-                        ? 'bg-burnt-orange w-8' 
-                        : 'bg-white/50 hover:bg-white/80'
+                    className={`h-1.5 rounded-full transition-all ${
+                      idx === currentImageIndex ? 'bg-terracotta w-6' : 'bg-paper/60 w-1.5'
                     }`}
                   />
                 ))}
               </div>
             </div>
 
-            <div className="p-3 sm:p-6 md:p-8">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-                <h3 className="text-2xl sm:text-3xl font-light text-deep-gray tracking-wide">
+            {/* Details */}
+            <div className="p-5 sm:p-7">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3
+                  className="text-3xl text-charcoal"
+                  style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                >
                   {selectedRoom.title}
                 </h3>
-                <div className="text-left sm:text-right">
-                  <span className="text-2xl sm:text-3xl font-extralight text-burnt-orange">{selectedRoom.price}</span>
-                  <span className="text-warm-gray font-light text-sm sm:text-base"> ₽/сутки</span>
+                <div className="text-right shrink-0">
+                  <div
+                    className="text-2xl text-charcoal"
+                    style={{ fontFamily: '"Soyuz Grotesk", Georgia, serif', fontWeight: 700 }}
+                  >
+                    {selectedRoom.price} ₽
+                  </div>
+                  <div className="text-xs text-ink-muted">за сутки</div>
                 </div>
               </div>
 
-              <p className="text-sm sm:text-base text-warm-gray/90 font-light leading-relaxed mb-6">
-                {selectedRoom.description}
-              </p>
+              <p className="text-ink-muted leading-relaxed mb-6">{selectedRoom.description}</p>
 
-              <h4 className="text-lg sm:text-xl font-light text-deep-gray mb-4 tracking-wide">
-                Удобства
-              </h4>
-              <ul className="grid sm:grid-cols-2 gap-2 sm:gap-3 mb-6 sm:mb-8">
-                {selectedRoom.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-warm-gray font-light">
-                    <Icon name="Check" size={18} className="text-burnt-orange mt-0.5 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
+              <div className="editorial-divider mb-5" />
+              <h4 className="label-caps mb-4">Оснащение</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-7">
+                {selectedRoom.features.map((f) => (
+                  <div key={f} className="flex items-center gap-2 text-sm text-ink-muted">
+                    <span className="w-1 h-1 rounded-full bg-terracotta shrink-0" />
+                    {f}
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              <Button 
-                className="w-full glass-button font-light text-base sm:text-lg py-4 sm:py-6"
-                onClick={() => {
-                  onBookRoom(selectedRoom.title);
-                  closeModal();
-                }}
+              <button
+                className="editorial-button w-full py-3 rounded-lg text-base"
+                onClick={() => { onBookRoom(selectedRoom.title); closeModal(); }}
               >
-                Забронировать номер
-                <Icon name="ArrowRight" size={20} className="ml-2" />
-              </Button>
+                Забронировать этот номер
+                <Icon name="ArrowRight" size={16} className="inline ml-2" />
+              </button>
             </div>
           </div>
         </div>

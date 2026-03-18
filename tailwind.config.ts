@@ -19,11 +19,21 @@ export default {
 		},
 		extend: {
 			colors: {
-				'burnt-orange': 'hsl(var(--burnt-orange))',
-				'deep-gray': 'hsl(var(--deep-gray))',
-				'warm-gray': 'hsl(var(--warm-gray))',
-				'light-gray': 'hsl(var(--light-gray))',
-				'accent-orange': 'hsl(var(--accent-orange))',
+				'terracotta': 'hsl(var(--terracotta))',
+				'paper': 'hsl(var(--paper))',
+				'paper-warm': 'hsl(var(--paper-warm))',
+				'charcoal': 'hsl(var(--charcoal))',
+				'charcoal-soft': 'hsl(var(--charcoal-soft))',
+				'ink': 'hsl(var(--ink))',
+				'ink-muted': 'hsl(var(--ink-muted))',
+				'warm-border': 'hsl(var(--warm-border))',
+				'warm-border-light': 'hsl(var(--warm-border-light))',
+				/* legacy aliases */
+				'burnt-orange': 'hsl(var(--terracotta))',
+				'deep-gray': 'hsl(var(--paper))',
+				'warm-gray': 'hsl(var(--ink-muted))',
+				'light-gray': 'hsl(var(--paper-warm))',
+				'accent-orange': 'hsl(var(--terracotta))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -67,6 +77,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'display': ['"Soyuz Grotesk"', 'Georgia', 'serif'],
+				'body': ['"Aubrey"', 'Georgia', '"Times New Roman"', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
