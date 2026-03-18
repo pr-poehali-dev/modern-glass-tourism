@@ -259,6 +259,24 @@
     transform: translateY(-2px);
   }
 
+  .glass-button-outline {
+    @apply backdrop-blur-xl border-2 border-burnt-orange/50 font-light;
+    background: transparent;
+    box-shadow: none;
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-button-outline:hover {
+    @apply bg-gradient-to-br from-burnt-orange to-accent-orange text-white border-burnt-orange;
+    box-shadow:
+      0 12px 40px rgba(213, 97, 40, 0.4),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
   @keyframes waveFloat1 {
     0%,
     100% {
