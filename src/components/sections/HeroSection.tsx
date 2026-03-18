@@ -1,40 +1,11 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
-import { useEffect, useRef, useCallback } from 'react';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
 }
 
 export default function HeroSection({ onNavigate }: HeroSectionProps) {
-  const parallaxRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
-
-  const handleScroll = useCallback(() => {
-    if (rafRef.current) return;
-    rafRef.current = requestAnimationFrame(() => {
-      const y = window.scrollY;
-      if (parallaxRef.current) {
-        parallaxRef.current.style.transform = `translateY(${y * 0.4}px)`;
-      }
-      if (wrapperRef.current) {
-        const fadeStart = 300;
-        const fadeEnd = 800;
-        const opacity = Math.max(0, Math.min(1, 1 - (y - fadeStart) / (fadeEnd - fadeStart)));
-        wrapperRef.current.style.opacity = String(opacity);
-      }
-      rafRef.current = 0;
-    });
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [handleScroll]);
 
   return (
     <section id="home" className="pt-24 md:pt-32 pb-8 md:pb-12 px-4 relative">
@@ -100,28 +71,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         </div>
       </div>
 
-      <div 
-        ref={wrapperRef}
-        className="absolute left-0 right-0 bottom-0 h-[60vh] overflow-hidden pointer-events-none -z-10"
-      >
-        <div
-          ref={parallaxRef}
-          className="relative w-full h-full"
-          style={{ willChange: 'transform' }}
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" 
-            alt="Закат над морем"
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-            style={{
-              maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%)',
-              WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%)'
-            }}
-          />
-        </div>
-      </div>
+
     </section>
   );
 }
