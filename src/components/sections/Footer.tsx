@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="editorial-divider my-7" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-aubrey text-ink-muted text-xs">© 2025 Горизонт. Все права защищены.</p>
+          <p className="font-aubrey text-ink-muted text-xs">© 2026 Горизонт. Все права защищены.</p>
           <p className="font-aubrey text-ink-muted text-xs">
             ИП Камышанский Сергей Александрович · ИНН 234903871201 · ОГРН 323237500361307
           </p>
