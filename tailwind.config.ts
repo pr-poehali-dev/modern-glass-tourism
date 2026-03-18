@@ -79,7 +79,7 @@ export default {
 				}
 			},
 			fontFamily: {
-				'display': ['"Soyuz Grotesk"', 'Georgia', 'serif'],
+				'display': ['"Otto Attack"', 'Georgia', 'serif'],
 				'body': ['"Aubrey"', 'Georgia', '"Times New Roman"', 'serif'],
 			},
 			borderRadius: {

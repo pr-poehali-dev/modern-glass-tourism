@@ -60,7 +60,7 @@ export default function ReviewsSection() {
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-soyuz text-charcoal text-sm font-bold">{review.name}</p>
+                  <p className="font-soyuz text-charcoal text-sm">{review.name}</p>
                   <p className="font-aubrey text-ink-muted text-xs">{review.date}</p>
                 </div>
               </div>

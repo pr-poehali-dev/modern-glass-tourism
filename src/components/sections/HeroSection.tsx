@@ -61,7 +61,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           ].map((item) => (
             <div key={item.value} className="space-y-1">
               <Icon name={item.icon} size={20} className="text-terracotta mb-2" />
-              <p className="font-soyuz text-sm font-bold text-charcoal">{item.value}</p>
+              <p className="font-soyuz text-sm text-charcoal">{item.value}</p>
               <p className="font-aubrey text-xs text-ink-muted">{item.note}</p>
             </div>
           ))}

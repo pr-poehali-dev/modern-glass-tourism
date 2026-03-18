@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
           <div className="flex items-center gap-3">
             <Logo size={30} />
-            <span className="font-soyuz text-xl font-bold text-charcoal" style={{ letterSpacing: '-0.02em' }}>
+            <span className="font-soyuz text-xl text-charcoal" style={{ letterSpacing: '-0.02em' }}>
               Горизонт
             </span>
           </div>
