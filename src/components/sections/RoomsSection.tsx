@@ -99,17 +99,14 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
         <div className="container mx-auto max-w-5xl">
 
           {/* Section header */}
-          <div className="mb-8 md:mb-10">
+          <div className="mb-6 md:mb-8">
             <div className="flex items-center gap-2 mb-4">
               <span className="w-6 h-px bg-terracotta inline-block" />
               <span className="label-caps">Размещение</span>
             </div>
-            <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-4">
+            <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">
               Наши номера
             </h2>
-            <p className="font-aubrey text-ink-muted text-lg max-w-md">
-              Выберите идеальный вариант для вашего отдыха
-            </p>
           </div>
 
           <div ref={ref} className={`grid md:grid-cols-2 gap-6 scroll-reveal ${isVisible ? 'visible' : ''}`}>

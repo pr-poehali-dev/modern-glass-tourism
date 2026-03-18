@@ -187,17 +187,14 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
     <section id="booking" className="py-10 md:py-14 px-4">
       <div className="container mx-auto max-w-2xl">
 
-        <div className="mb-10 md:mb-12">
+        <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Онлайн-бронирование</span>
           </div>
-          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-4">
+          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">
             Забронировать номер
           </h2>
-          <p className="font-aubrey text-ink-muted text-lg">
-            Заполните форму — мы свяжемся с вами в WhatsApp
-          </p>
         </div>
 
         <div ref={ref} className={`editorial-card-flat p-6 sm:p-8 scroll-reveal ${isVisible || forceVisible ? 'visible' : ''}`}>

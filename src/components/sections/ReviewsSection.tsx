@@ -29,13 +29,12 @@ export default function ReviewsSection() {
     <section id="reviews" className="py-10 md:py-14 px-4">
       <div className="container mx-auto max-w-5xl">
 
-        <div className="mb-8 md:mb-10">
+        <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Впечатления гостей</span>
           </div>
-          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-4">Отзывы</h2>
-          <p className="font-aubrey text-ink-muted text-lg">Что говорят о нас наши гости</p>
+          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">Отзывы</h2>
         </div>
 
         <div ref={ref} className={`grid sm:grid-cols-3 gap-5 scroll-reveal ${isVisible ? 'visible' : ''}`}>

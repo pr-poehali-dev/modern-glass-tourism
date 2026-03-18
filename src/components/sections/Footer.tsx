@@ -2,7 +2,7 @@ import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
-    <footer className="py-10 md:py-14 px-4 border-t border-warm-border bg-paper">
+    <footer className="py-10 md:py-14 px-4 bg-paper">
       <div className="container mx-auto max-w-5xl">
         <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
           <div className="flex items-center gap-3">
