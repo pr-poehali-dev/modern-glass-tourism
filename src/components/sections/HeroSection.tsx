@@ -20,9 +20,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           className="font-soyuz text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal mb-8 animate-fade-in"
           style={{ animationDelay: '0.05s', lineHeight: 1.0, letterSpacing: '-0.03em' }}
         >
-          Ваш райский
+          Ваш <span className="text-terracotta">райский</span>
           <br />
-          <span className="text-terracotta">уголок у моря</span>
+          уголок у моря
         </h1>
 
         {/* Description */}

@@ -124,8 +124,8 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute top-3 right-3 bg-[#FDFDF1]/90 backdrop-blur-sm px-3 py-1.5 rounded-md border border-warm-border font-soyuz">
-                    <span className="text-xl text-charcoal font-bold">{room.price}</span>
+                  <div className="absolute top-3 right-3 bg-[#FDFDF1]/90 backdrop-blur-sm px-3 py-1.5 rounded-md border border-warm-border">
+                    <span className="font-aubrey text-xl text-charcoal font-bold">{room.price}</span>
                     <span className="font-aubrey text-xs text-ink-muted ml-1">₽/сутки</span>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
               <div className="flex items-start justify-between gap-4 mb-4">
                 <h3 className="font-soyuz text-3xl text-charcoal">{selectedRoom.title}</h3>
                 <div className="text-right shrink-0">
-                  <div className="font-soyuz text-2xl text-charcoal font-bold">
+                  <div className="font-aubrey text-2xl text-charcoal font-bold">
                     {selectedRoom.price} ₽
                   </div>
                   <div className="font-aubrey text-xs text-ink-muted">за сутки</div>
