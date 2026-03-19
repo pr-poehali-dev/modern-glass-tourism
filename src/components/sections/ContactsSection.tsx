@@ -10,7 +10,7 @@ export default function ContactsSection() {
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Как нас найти</span>
           </div>
-          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">Контакты</h2>
+          <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-0">Контакты</h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6 items-stretch">
@@ -26,7 +26,7 @@ export default function ContactsSection() {
                 className="flex items-center gap-3 group"
               >
                 <Icon name="Phone" size={18} className="text-terracotta shrink-0" />
-                <span className="font-soyuz text-2xl sm:text-3xl text-charcoal group-hover:text-terracotta transition-colors">
+                <span className="font-display text-2xl sm:text-3xl text-charcoal group-hover:text-terracotta transition-colors">
                   +7 (918) 471-83-83
                 </span>
               </a>

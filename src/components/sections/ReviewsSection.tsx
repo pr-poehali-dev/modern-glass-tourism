@@ -34,7 +34,7 @@ export default function ReviewsSection() {
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Впечатления гостей</span>
           </div>
-          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">Отзывы</h2>
+          <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-0">Отзывы</h2>
         </div>
 
         <div ref={ref} className={`grid sm:grid-cols-3 gap-5 scroll-reveal ${isVisible ? 'visible' : ''}`}>
@@ -53,13 +53,13 @@ export default function ReviewsSection() {
               <div className="editorial-divider mb-4" />
               <div className="flex items-center gap-3">
                 <div
-                  className="font-soyuz w-9 h-9 rounded-full flex items-center justify-center shrink-0 font-bold text-sm"
+                  className="font-display w-9 h-9 rounded-full flex items-center justify-center shrink-0 font-bold text-sm"
                   style={{ background: '#F06519', color: '#FDFDF1' }}
                 >
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-soyuz text-charcoal text-sm">{review.name}</p>
+                  <p className="font-display text-charcoal text-sm">{review.name}</p>
                   <p className="font-aubrey text-ink-muted text-xs">{review.date}</p>
                 </div>
               </div>

@@ -192,7 +192,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
             <span className="w-6 h-px bg-terracotta inline-block" />
             <span className="label-caps">Онлайн-бронирование</span>
           </div>
-          <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">
+          <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-0">
             Забронировать номер
           </h2>
         </div>

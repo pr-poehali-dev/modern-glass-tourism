@@ -31,7 +31,7 @@ export default function Navigation({ onNavigate }: NavigationProps) {
             onClick={() => onNavigate('home')}
           >
             <Logo size={32} />
-            <span className="font-soyuz text-xl tracking-tight text-charcoal">
+            <span className="font-display text-xl tracking-tight text-charcoal">
               Горизонт
             </span>
           </div>

@@ -104,7 +104,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
               <span className="w-6 h-px bg-terracotta inline-block" />
               <span className="label-caps">Размещение</span>
             </div>
-            <h2 className="font-soyuz text-4xl sm:text-5xl text-charcoal mb-0">
+            <h2 className="font-display text-4xl sm:text-5xl text-charcoal mb-0">
               Наши номера
             </h2>
           </div>
@@ -129,7 +129,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
 
                 {/* Content */}
                 <div className="p-5 sm:p-6">
-                  <h3 className="font-soyuz text-2xl text-charcoal mb-2">{room.title}</h3>
+                  <h3 className="font-display text-2xl text-charcoal mb-2">{room.title}</h3>
                   <p className="font-aubrey text-ink-muted text-sm leading-relaxed mb-5">
                     {room.shortDescription}
                   </p>
@@ -210,7 +210,7 @@ export default function RoomsSection({ onBookRoom }: RoomsSectionProps) {
             {/* Details */}
             <div className="p-5 sm:p-7">
               <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 className="font-soyuz text-3xl text-charcoal">{selectedRoom.title}</h3>
+                <h3 className="font-display text-3xl text-charcoal">{selectedRoom.title}</h3>
                 <div className="text-right shrink-0">
                   <div className="font-aubrey text-2xl text-charcoal font-bold">
                     {selectedRoom.price} ₽
