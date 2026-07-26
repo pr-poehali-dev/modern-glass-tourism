@@ -79,8 +79,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				'display': ['"Montserrat"', 'Arial', 'sans-serif'],
-				'body': ['"Montserrat"', 'Arial', 'sans-serif'],
+				'display': ['"Hanken Grotesk"', 'Arial', 'sans-serif'],
+				'body': ['"Hanken Grotesk"', 'Arial', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

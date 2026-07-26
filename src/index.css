@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@1,600;1,700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -100,7 +100,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     font-weight: 400;
     letter-spacing: 0.01em;
     position: relative;
@@ -123,7 +123,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1.1;
@@ -138,7 +138,7 @@
   select,
   textarea,
   button {
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
   }
 
   strong,
@@ -147,7 +147,7 @@
   }
 
   .font-aubrey {
-    font-family: "Montserrat", Arial, sans-serif !important;
+    font-family: "Hanken Grotesk", Arial, sans-serif !important;
   }
 }
 
@@ -190,7 +190,7 @@
   .editorial-button {
     background: #f06519;
     color: #fdfdf1;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     font-weight: 400;
     border-radius: calc(var(--radius) - 0.125rem);
     border: none;
@@ -212,7 +212,7 @@
     background: transparent;
     color: #f06519;
     border: 1.5px solid #f06519;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     font-weight: 400;
     border-radius: calc(var(--radius) - 0.125rem);
     transition:
@@ -234,7 +234,7 @@
     border: 1px solid hsl(var(--warm-border));
     border-radius: calc(var(--radius) - 0.25rem);
     color: hsl(var(--charcoal));
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     transition:
       border-color 0.2s ease,
       box-shadow 0.2s ease;
@@ -255,7 +255,7 @@
 
   /* Label caps */
   .label-caps {
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "Hanken Grotesk", Arial, sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
