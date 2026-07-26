@@ -251,7 +251,7 @@ export default function BookingSection({ bookingData, onBookingChange }: Booking
                   value={bookingData.roomType}
                   onChange={(e) => onBookingChange({ roomType: e.target.value })}
                   className="editorial-input w-full h-10 px-3 rounded-md text-sm"
-                  style={{ fontFamily: '"Aubrey", Georgia, serif' }}
+                  style={{ fontFamily: '"Montserrat", Arial, sans-serif' }}
                 >
                   <option value="">Выберите номер</option>
                   <option value="Комфорт">Комфорт — 6 000 ₽/сутки</option>

@@ -1,13 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Aubrey&family=Cormorant+Garamond:ital@1&display=swap");
-
-@font-face {
-  font-family: "Otto Attack";
-  src: url("https://cdn.poehali.dev/projects/3840c478-5188-442e-abbe-d84717c733c8/bucket/4d4d3ac8-63fd-49a8-b39e-13b703530eaf.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -109,7 +100,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Aubrey", Georgia, "Times New Roman", serif;
+    font-family: "Montserrat", Arial, sans-serif;
     font-weight: 400;
     letter-spacing: 0.01em;
     position: relative;
@@ -132,8 +123,8 @@
   h4,
   h5,
   h6 {
-    font-family: "Otto Attack", Georgia, serif;
-    font-weight: 400;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1.1;
   }
@@ -147,7 +138,7 @@
   select,
   textarea,
   button {
-    font-family: "Aubrey", Georgia, "Times New Roman", serif;
+    font-family: "Montserrat", Arial, sans-serif;
   }
 
   strong,
@@ -156,7 +147,7 @@
   }
 
   .font-aubrey {
-    font-family: "Aubrey", Georgia, "Times New Roman", serif !important;
+    font-family: "Montserrat", Arial, sans-serif !important;
   }
 }
 
@@ -199,7 +190,7 @@
   .editorial-button {
     background: #f06519;
     color: #fdfdf1;
-    font-family: "Aubrey", Georgia, serif;
+    font-family: "Montserrat", Arial, sans-serif;
     font-weight: 400;
     border-radius: calc(var(--radius) - 0.125rem);
     border: none;
@@ -221,7 +212,7 @@
     background: transparent;
     color: #f06519;
     border: 1.5px solid #f06519;
-    font-family: "Aubrey", Georgia, serif;
+    font-family: "Montserrat", Arial, sans-serif;
     font-weight: 400;
     border-radius: calc(var(--radius) - 0.125rem);
     transition:
@@ -243,7 +234,7 @@
     border: 1px solid hsl(var(--warm-border));
     border-radius: calc(var(--radius) - 0.25rem);
     color: hsl(var(--charcoal));
-    font-family: "Aubrey", Georgia, serif;
+    font-family: "Montserrat", Arial, sans-serif;
     transition:
       border-color 0.2s ease,
       box-shadow 0.2s ease;
@@ -264,7 +255,7 @@
 
   /* Label caps */
   .label-caps {
-    font-family: "Aubrey", Georgia, serif;
+    font-family: "Montserrat", Arial, sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;

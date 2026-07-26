@@ -79,8 +79,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				'display': ['"Otto Attack"', 'Georgia', 'serif'],
-				'body': ['"Aubrey"', 'Georgia', '"Times New Roman"', 'serif'],
+				'display': ['"Montserrat"', 'Arial', 'sans-serif'],
+				'body': ['"Montserrat"', 'Arial', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
