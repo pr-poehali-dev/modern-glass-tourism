@@ -18,9 +18,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Heading */}
         <h1
           className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal mb-8 animate-fade-in"
-          style={{ animationDelay: '0.05s', lineHeight: 1.0, letterSpacing: '-0.03em' }}
+          style={{ animationDelay: '0.05s', lineHeight: 1.0, letterSpacing: '-0.03em', fontWeight: 400 }}
         >
-          Ваш <span className="text-terracotta" style={{ fontFamily: '"Montserrat", Arial, sans-serif', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.01em', fontSize: '1.2em' }}>райский</span>
+          Ваш <span className="text-terracotta" style={{ fontFamily: '"Playfair Display", Georgia, serif', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.01em', fontSize: '1.15em' }}>райский</span>
           <br />
           уголок у моря
         </h1>
